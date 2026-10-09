@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1115" />
+  <meta name="description" content="Handstand Quest — beginner progression trainer for Long" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Handstand" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Handstand Quest</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" sizes="180x180" />
+  <link rel="icon" type="image/png" href="icons/icon-192.png" sizes="192x192" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">⊥</span>
+        <div>
+          <h1>Handstand RPG</h1>
+          <p class="subtitle">Hey, <span id="display-name">Long</span></p>
+        </div>
+      </div>
+      <div class="level-chip" id="level-chip" aria-live="polite">
+        <span class="lvl-label">LVL</span>
+        <span class="lvl-num" id="level-num">1</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Main navigation">
+      <button class="tab active" data-view="home" role="tab" aria-selected="true">Home</button>
+      <button class="tab" data-view="quest" role="tab" aria-selected="false">Quest</button>
+      <button class="tab" data-view="log" role="tab" aria-selected="false">Log</button>
+      <button class="tab" data-view="map" role="tab" aria-selected="false">Map</button>
+      <button class="tab" data-view="history" role="tab" aria-selected="false">History</button>
+      <button class="tab" data-view="settings" role="tab" aria-selected="false">Settings</button>
+    </nav>
+
+    <main>
+      <!-- HOME -->
+      <section id="view-home" class="view active" role="tabpanel">
+        <div class="card hero-card">
+          <div class="xp-row">
+            <span id="xp-label">0 / 50 XP</span>
+            <span id="streak-badge" class="streak">🔥 0</span>
+          </div>
+          <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0" id="xp-bar-wrap">
+            <div class="xp-fill" id="xp-fill"></div>
+          </div>
+          <p class="stage-line">Current stage: <strong id="current-stage-name">Wrist &amp; shoulder prep</strong></p>
+        </div>
+
+        <div class="card" id="last-session-card">
+          <h2>Last session</h2>
+          <p id="last-session-summary" class="muted">No sessions yet — start your first quest!</p>
+        </div>
+
+        <div class="card tip-card">
+          <h2>Quick tip</h2>
+          <p id="home-tip">Warm wrists before every session. Pain = stop and rest.</p>
+        </div>
+
+        <div class="card install-tip-card" id="install-tip-card" hidden>
+          <div class="install-tip-header">
+            <h2>Install on iPhone</h2>
+            <button type="button" class="btn-dismiss" id="btn-dismiss-install-tip" aria-label="Dismiss install tip">×</button>
+          </div>
+          <p class="muted">Open this page in <strong>Safari</strong> → tap <strong>Share</strong> → <strong>Add to Home Screen</strong>. Works offline after install.</p>
+        </div>
+
+        <div class="action-row">
+          <button class="btn primary" data-goto="quest">Today's Quest</button>
+          <button class="btn ghost" data-goto="log">Log Session</button>
+        </div>
+      </section>
+
+      <!-- QUEST -->
+      <section id="view-quest" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Today's Quest</h2>
+          <p class="muted" id="quest-stage-label">Stage 1 · ~12–15 min</p>
+          <ol class="drill-list" id="quest-drills"></ol>
+          <div class="action-row">
+            <button class="btn primary" data-goto="log">Log this session</button>
+            <button class="btn ghost" id="btn-rest-day">Mobility rest day (+5 XP)</button>
+          </div>
+        </div>
+
+        <div class="card" id="unlock-card">
+          <h2>Unlock next stage?</h2>
+          <p id="unlock-criteria" class="muted"></p>
+          <button class="btn accent" id="btn-unlock-attempt">I hit the goal — unlock attempt</button>
+        </div>
+
+        <div class="card" id="boss-card">
+          <h2>Weekly Boss Fight</h2>
+          <p class="muted">Optional: log a max hold or clean kick-ups for bonus XP.</p>
+          <form id="boss-form" class="form">
+            <label>
+              Type
+              <select id="boss-type">
+                <option value="hold">Max hold (seconds)</option>
+                <option value="kicks">Clean kick-ups (count)</option>
+              </select>
+            </label>
+            <label>
+              Value
+              <input type="number" id="boss-value" min="0" max="600" placeholder="e.g. 12" />
+            </label>
+            <button type="submit" class="btn accent">Log boss fight (+10 XP)</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- LOG -->
+      <section id="view-log" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Log Session</h2>
+          <form id="session-form" class="form">
+            <fieldset>
+              <legend>Drills completed</legend>
+              <div id="drill-checkboxes" class="check-grid"></div>
+            </fieldset>
+
+            <label>
+              Wrist feel (1 = sore, 5 = great)
+              <input type="range" id="wrist-feel" min="1" max="5" value="4" />
+              <span class="range-val" id="wrist-feel-val">4</span>
+            </label>
+
+            <label>
+              Hold time (seconds, optional)
+              <input type="number" id="hold-time" min="0" max="600" placeholder="e.g. 15" />
+            </label>
+
+            <label>
+              Kick-ups (count, optional)
+              <input type="number" id="kick-count" min="0" max="100" placeholder="e.g. 5" />
+            </label>
+
+            <label>
+              Notes
+              <textarea id="session-notes" rows="3" placeholder="How did it feel?"></textarea>
+            </label>
+
+            <button type="submit" class="btn primary block">Mark session complete (+10 XP)</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- MAP -->
+      <section id="view-map" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Progress Map</h2>
+          <ul class="stage-map" id="stage-map"></ul>
+        </div>
+      </section>
+
+      <!-- HISTORY -->
+      <section id="view-history" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Session History</h2>
+          <ul class="history-list" id="history-list">
+            <li class="muted">No sessions yet.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="view-settings" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Settings</h2>
+          <form id="settings-form" class="form">
+            <label>
+              Display name
+              <input type="text" id="settings-name" maxlength="32" value="Long" />
+            </label>
+            <button type="submit" class="btn primary">Save name</button>
+          </form>
+          <hr class="divider" />
+          <button class="btn danger" id="btn-reset">Reset all progress…</button>
+          <p class="muted small">Data stays on this device (localStorage key: handstand-rpg-v1).</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden role="status"></div>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./sw.js").catch(function (err) {
+          console.warn("SW registration failed:", err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
