@@ -1,6 +1,6 @@
 # Handstand Quest (PWA)
 
-A self-contained beginner handstand + yoga/mobility trainer for **Long** — dark athletic UI, shared XP/levels, separate streaks, a 6-stage handstand map, and a peer **Yoga / Mobility** track. Works as an installable Progressive Web App on iPhone (Safari → Add to Home Screen).
+A self-contained beginner handstand + yoga/mobility trainer for **Long** — dark athletic UI, shared XP/levels, separate streaks, a 6-stage handstand map, a peer **Yoga / Mobility** track, and desk-friendly **Office Snacks**. Works as an installable Progressive Web App on iPhone (Safari → Add to Home Screen).
 
 ## How to open
 
@@ -40,13 +40,14 @@ Home shows a dismissible “Install on iPhone” card. Dismissing it stores a fl
 
 ## Features
 
-- **Home** — level, XP bar, main streak, Daily Mini + Yoga status/streaks, current handstand stage, last session, install tip
+- **Home** — level, XP bar, main streak, Daily Mini + Yoga + Office Snacks status/streaks, current handstand stage, last session, install tip
+- **Snacks** — 2–4 min office desk-stretch packs (neck, chest, hips, wrists, thoracic, full reset); up to 3/day
 - **Mini** — ~5–8 min Daily Mini stretch/mobility circuit (separate from quest days)
 - **Quest** — ~12–15 min drill list for your current handstand stage, mobility rest day, unlock attempt, weekly boss fight
 - **Yoga** — peer mobility track (6 stages): soft start → hips → hamstrings → shoulders → flow A → flow B; own streak; shared XP
 - **Log** — mark handstand drills done, wrist feel 1–5, optional hold/kicks, notes → +10 XP
 - **Map** — 6 handstand stages with locked / current / done states
-- **History** — past sessions (including `mini` and `yoga` entries) with XP earned
+- **History** — past sessions (including `mini`, `yoga`, and `office-snack` entries) with XP earned
 - **Settings** — display name (default Long), double-confirm progress reset
 
 ## Gamification
@@ -59,25 +60,27 @@ Home shows a dismissible “Install on iPhone” card. Dismissing it stores a fl
 | Streak hits multiple of 3 (handstand or yoga) | +15 |
 | Mobility rest day | +5 |
 | Daily Mini (once per calendar day) | +5 |
+| Office snack (up to 3 per calendar day) | +3 each (+9 max) |
 | Yoga flow (once per calendar day) | +12 |
 | Yoga stage unlock (self-report) | +20 |
 | Boss fight log | +10 |
 
-- **Level** = floor(total XP / 50) + 1 (Level 1 at 0–49 XP) — **shared** across handstand, mini, and yoga
-- **Main streak** increments when you log a full session (or rest day) within 5 calendar days of the previous session; resets if gap &gt; 5 days. Daily Mini and Yoga do **not** change main streak.
+- **Level** = floor(total XP / 50) + 1 (Level 1 at 0–49 XP) — **shared** across handstand, mini, yoga, and office snacks
+- **Main streak** increments when you log a full session (or rest day) within 5 calendar days of the previous session; resets if gap &gt; 5 days. Daily Mini, Yoga, and Office Snacks do **not** change main streak.
 - **Mini streak** (`miniStreak`) increments on consecutive calendar days with a Daily Mini logged; stored with `lastMiniDate`.
 - **Yoga streak** (`yogaStreak`) increments on consecutive calendar days with a yoga flow; gap &gt; 1 day resets. Bonus +15 XP every 3 yoga streak days. Tracked with `lastYogaDate`, `yogaUnlockedStage`, `yogaCompletedStages`.
+- **Office snack streak** (`officeSnackStreak`) increments on consecutive calendar days with ≥1 snack logged; tracked with `lastOfficeSnackDate` and `officeSnackCountToday` (resets count each new day; max 3 snacks/day). Does **not** change handstand, mini, or yoga streaks.
 
 ## Data
 
-Game progress is persisted in `localStorage` under key **`handstand-rpg-v1`**. New fields (`miniStreak`, `lastMiniDate`, `yogaStreak`, `lastYogaDate`, `yogaUnlockedStage`, `yogaCompletedStages`) load with defaults for older saves. Stays on the device/browser that runs the app. Install-tip dismissal uses a separate key and does not alter game state.
+Game progress is persisted in `localStorage` under key **`handstand-rpg-v1`**. New fields (`miniStreak`, `lastMiniDate`, `yogaStreak`, `lastYogaDate`, `yogaUnlockedStage`, `yogaCompletedStages`, `officeSnackCountToday`, `lastOfficeSnackDate`, `officeSnackStreak`) load with defaults for older saves. Stays on the device/browser that runs the app. Install-tip dismissal uses a separate key and does not alter game state.
 
 ## PWA files
 
 | File | Role |
 |------|------|
 | `manifest.webmanifest` | Name, theme, icons, `display: standalone` |
-| `sw.js` | Caches app shell (`handstand-quest-v4`); bump `CACHE_NAME` when assets change |
+| `sw.js` | Caches app shell (`handstand-quest-v5`); bump `CACHE_NAME` when assets change |
 | `icons/icon-180.png` | Apple touch / general |
 | `icons/icon-192.png` | Manifest / favicon |
 | `icons/icon-512.png` | Manifest (any + maskable) |

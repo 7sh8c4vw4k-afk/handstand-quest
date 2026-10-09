@@ -557,6 +557,373 @@
     ],
   };
 
+
+  const OFFICE_SNACK_XP = 3;
+  const OFFICE_SNACK_MAX_PER_DAY = 3;
+
+  const OFFICE_SNACKS = [
+    {
+      id: "neck-traps",
+      name: "Neck & traps",
+      durationLabel: "~2–3 min",
+      blurb: "Unclench the desk shrug",
+      drills: [
+        {
+          id: "snack-shoulder-rolls",
+          label: "Shoulder rolls",
+          meta: "30–40s",
+          image: "exercises/shoulder-rolls.png",
+          steps: [
+            "Sit tall at your chair; arms hang soft by your sides.",
+            "Slowly roll shoulders up, back, and down for ~20s.",
+            "Reverse: up, forward, down for another ~15s.",
+            "Keep the jaw loose — no aggressive circling.",
+          ],
+          cue: "Quiet rolls — melt the upper traps, don’t force them.",
+        },
+        {
+          id: "snack-seated-neck",
+          label: "Seated side-neck stretch",
+          meta: "25s/side",
+          image: "exercises/seated-neck.png",
+          steps: [
+            "Sit tall; gently tip one ear toward the same shoulder.",
+            "Optional: rest a light hand on the side of the head — never pull hard.",
+            "Breathe calmly ~25s; return to center; switch sides.",
+            "Skip any sharp pain, dizziness, or nerve-like zaps.",
+          ],
+          cue: "Soft ear-to-shoulder only — no cracking, no yanking.",
+        },
+        {
+          id: "snack-chin-nods",
+          label: "Gentle chin nods",
+          meta: "8–10 slow reps",
+          image: "exercises/seated-breath.png",
+          steps: [
+            "Sit tall; imagine a string lifting the crown of your head.",
+            "Make a tiny double-chin nod: lengthen the back of the neck.",
+            "Release halfway; repeat 8–10 slow, small reps.",
+            "Keep range tiny — this is posture, not a crunch.",
+          ],
+          cue: "Small nods lengthen the neck; big ones strain it.",
+        },
+        {
+          id: "snack-trap-release",
+          label: "Hands-behind-back shoulder open",
+          meta: "30s",
+          image: "exercises/shoulder-rolls.png",
+          steps: [
+            "Seated or standing, clasp hands lightly behind the back (or hold a water bottle).",
+            "Draw shoulder blades gently together and down.",
+            "Lift the chest a little; breathe for ~30s.",
+            "Release if shoulders pinch — keep it easy.",
+          ],
+          cue: "Open the chest to quiet the desk hunch.",
+        },
+      ],
+    },
+    {
+      id: "chest-posture",
+      name: "Chest & open posture",
+      durationLabel: "~3 min",
+      blurb: "Undo the keyboard hunch",
+      drills: [
+        {
+          id: "snack-doorway",
+          label: "Doorway / wall pec stretch",
+          meta: "30s/side",
+          image: "exercises/doorway-chest.png",
+          steps: [
+            "Stand in a doorway; place one forearm on the frame at about shoulder height.",
+            "Step the same-side foot forward gently until you feel a mild chest stretch.",
+            "Hold ~30s with easy breathing; switch sides.",
+            "Keep ribs down — no aggressive lean.",
+          ],
+          cue: "Mild chest open is enough; leave hero stretches at home.",
+        },
+        {
+          id: "snack-wall-angels",
+          label: "Wall angels or scap squeezes",
+          meta: "8 smooth reps",
+          image: "exercises/wall-angels.png",
+          steps: [
+            "Stand with back lightly to a wall, or sit and squeeze shoulder blades.",
+            "Arms in a soft W; slide toward a Y if comfortable, then return.",
+            "Do ~8 smooth reps without forcing elbows to the wall.",
+            "Stop short of neck tension.",
+          ],
+          cue: "Quiet ribs, smooth scap motion.",
+        },
+        {
+          id: "snack-chest-clasp",
+          label: "Hands-behind-back clasp",
+          meta: "30–40s",
+          image: "exercises/doorway-chest.png",
+          steps: [
+            "Stand or sit; clasp hands behind you (or hold opposite elbows).",
+            "Gently draw the arms away from the back and lift the sternum.",
+            "Breathe into the chest for 30–40s.",
+            "Keep the neck long — don’t crank the head back.",
+          ],
+          cue: "Lift the chest, soften the neck.",
+        },
+        {
+          id: "snack-posture-reset",
+          label: "Seated posture reset + breath",
+          meta: "45s",
+          image: "exercises/seated-breath.png",
+          steps: [
+            "Plant feet; sit on the sit-bones; lengthen the spine.",
+            "Relax the shoulders down; soften the gaze.",
+            "Three to five slow breaths: in through the nose, longer out.",
+            "Return to work a little taller.",
+          ],
+          cue: "A calm breath seals the posture reset.",
+        },
+      ],
+    },
+    {
+      id: "hips",
+      name: "Hips",
+      durationLabel: "~3–4 min",
+      blurb: "Seated + optional standing",
+      drills: [
+        {
+          id: "snack-figure4",
+          label: "Seated figure-4",
+          meta: "35s/side",
+          image: "exercises/seated-figure4.png",
+          steps: [
+            "Sit tall; cross one ankle over the opposite thigh (figure-4).",
+            "Keep the foot flexed; hinge forward slightly only if comfortable.",
+            "Hold ~35s; switch sides.",
+            "Prop with a hand on the chair if balance feels tippy.",
+          ],
+          cue: "Glute stretch should feel dull and kind — never sharp in the knee.",
+        },
+        {
+          id: "snack-standing-hip",
+          label: "Standing hip-flexor (desk assist)",
+          meta: "30s/side · optional",
+          image: "exercises/standing-hip.png",
+          steps: [
+            "Stand behind or beside your desk; hold the edge for balance.",
+            "Step one foot back into a short lunge; tuck the pelvis gently under.",
+            "Feel a mild stretch in the front of the back hip; hold ~30s; switch.",
+            "Skip if knees complain — seated figure-4 alone is enough.",
+          ],
+          cue: "Tuck the pelvis more than you lunge deeper.",
+        },
+        {
+          id: "snack-hip-circles",
+          label: "Seated hip circles / marches",
+          meta: "40s",
+          image: "exercises/seated-figure4.png",
+          steps: [
+            "Sit tall near the front of the chair.",
+            "Lift one knee a little and draw a slow circle; switch directions.",
+            "Alternate legs for ~40s total, or do seated marches.",
+            "Stay quiet and controlled — office-friendly.",
+          ],
+          cue: "Wake the hips without leaving the chair.",
+        },
+        {
+          id: "snack-hip-breath",
+          label: "Easy seated fold or breath",
+          meta: "30s",
+          image: "exercises/seated-breath.png",
+          steps: [
+            "Feet planted; hinge slightly from the hips with a long spine, or just sit tall.",
+            "Shake the legs out softly; take three easy breaths.",
+            "Return upright when ready.",
+          ],
+          cue: "Finish soft — hips like patience more than force.",
+        },
+      ],
+    },
+    {
+      id: "wrists-forearms",
+      name: "Wrists & forearms",
+      durationLabel: "~2–3 min",
+      blurb: "Mouse & keyboard relief",
+      drills: [
+        {
+          id: "snack-desk-wrist",
+          label: "Desk wrist flex / extend",
+          meta: "30s each way",
+          image: "exercises/desk-wrist.png",
+          steps: [
+            "Seated at your desk, place one palm on the desk fingers toward you (gentle wrist stretch).",
+            "Hold ~20–30s; then flip to the back of the hand for the other direction if comfortable.",
+            "Switch hands.",
+            "Keep pressure light — sharp pain means stop.",
+          ],
+          cue: "Warm the wrists like you warm them for handstands — gently.",
+        },
+        {
+          id: "snack-wrist-rocks",
+          label: "Wrist rocks / circles",
+          meta: "45s",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Hands on desk or thighs; rock palms gently forward and back.",
+            "Add slow wrist circles both ways with open hands.",
+            "Optional: light prayer stretch at the chest for 15s.",
+            "Stay quiet and pain-free.",
+          ],
+          cue: "Circles should feel oily, not crunchy.",
+        },
+        {
+          id: "snack-forearm",
+          label: "Forearm stretch + shake-out",
+          meta: "30s/side + shake",
+          image: "exercises/desk-wrist.png",
+          steps: [
+            "Extend one arm; gently pull fingers back with the other hand (palm up / palm down variants).",
+            "~20s each version per arm.",
+            "Finish by shaking hands out like you flicked water off.",
+          ],
+          cue: "Forearms do the typing — thank them softly.",
+        },
+        {
+          id: "snack-finger-spread",
+          label: "Finger spreads & fist opens",
+          meta: "20s",
+          image: "exercises/desk-wrist.png",
+          steps: [
+            "Spread all fingers wide, hold 3s; make soft fists; open again.",
+            "Repeat ~5 times; wiggle fingers.",
+            "Return to the keyboard with softer hands.",
+          ],
+          cue: "Tiny reset, big difference for mouse grip.",
+        },
+      ],
+    },
+    {
+      id: "upper-back",
+      name: "Upper back / thoracic",
+      durationLabel: "~3 min",
+      blurb: "Twist out the chair hunch",
+      drills: [
+        {
+          id: "snack-chair-twist",
+          label: "Seated chair twist",
+          meta: "30s/side",
+          image: "exercises/chair-twist.png",
+          steps: [
+            "Sit tall; plant feet; rotate gently toward one side.",
+            "Hold the chair back or rest a hand on the opposite thigh — no yanking.",
+            "Inhale length; exhale a little more rotation; ~30s; switch.",
+            "Keep the twist in the mid-back, not a neck crank.",
+          ],
+          cue: "Length first, then twist — never force the neck.",
+        },
+        {
+          id: "snack-cat-cow-seat",
+          label: "Seated cat-cow",
+          meta: "45–60s",
+          image: "exercises/cat-cow.png",
+          steps: [
+            "Hands on knees; inhale to arch gently (open chest).",
+            "Exhale to round the upper back and soft-tuck the chin.",
+            "Flow with the breath for ~45–60s.",
+            "Keep range small enough for a quiet office.",
+          ],
+          cue: "Breath-led waves through the mid-back.",
+        },
+        {
+          id: "snack-thoracic-reach",
+          label: "Thread / open-arm reach",
+          meta: "25s/side",
+          image: "exercises/seated-twist.png",
+          steps: [
+            "Seated: reach one arm across or open it to the side while rotating the chest.",
+            "Optional standing: hand on desk, soft hinge, open the free arm to the ceiling.",
+            "Hold ~25s; switch.",
+            "Stop if the shoulder pinches.",
+          ],
+          cue: "Open the chest toward the sky, soft neck.",
+        },
+        {
+          id: "snack-scap-squeeze",
+          label: "Scap squeezes",
+          meta: "8–10 reps",
+          image: "exercises/wall-angels.png",
+          steps: [
+            "Sit or stand tall; squeeze shoulder blades gently together.",
+            "Hold 2s; release; repeat 8–10 times.",
+            "Keep shoulders down away from ears.",
+          ],
+          cue: "Think ‘slide pockets together’ — not shrug.",
+        },
+      ],
+    },
+    {
+      id: "full-reset",
+      name: "Quick full reset",
+      durationLabel: "~4 min",
+      blurb: "Mix of the greatest hits",
+      drills: [
+        {
+          id: "snack-reset-neck",
+          label: "Neck & shoulder roll",
+          meta: "40s",
+          image: "exercises/seated-neck.png",
+          steps: [
+            "Shoulder rolls 20s, then a gentle ear-to-shoulder each side (~10s).",
+            "No pulling, no cracking.",
+          ],
+          cue: "Start by unclenching the desk shrug.",
+        },
+        {
+          id: "snack-reset-chest",
+          label: "Doorway or clasp chest open",
+          meta: "40s",
+          image: "exercises/doorway-chest.png",
+          steps: [
+            "Doorway pec stretch or hands-behind-back clasp — pick one.",
+            "Breathe into the chest ~40s total.",
+          ],
+          cue: "Open the front so the back can relax.",
+        },
+        {
+          id: "snack-reset-twist",
+          label: "Chair twist",
+          meta: "20s/side",
+          image: "exercises/chair-twist.png",
+          steps: [
+            "Seated twist each side ~20s.",
+            "Length on the inhale; easy rotate on the exhale.",
+          ],
+          cue: "Mid-back only — neck stays soft.",
+        },
+        {
+          id: "snack-reset-hips",
+          label: "Figure-4 or standing hip",
+          meta: "25s/side",
+          image: "exercises/seated-figure4.png",
+          steps: [
+            "Seated figure-4 each side, or standing hip-flexor if you prefer.",
+            "~25s/side is enough for a snack.",
+          ],
+          cue: "Hips like short and often more than deep and rare.",
+        },
+        {
+          id: "snack-reset-wrist-calf",
+          label: "Wrists + optional calf",
+          meta: "45s",
+          image: "exercises/desk-calf.png",
+          steps: [
+            "Quick wrist flex/extend on the desk (~30s).",
+            "Optional: standing calf stretch at a wall (~15s/side) — or skip if space is tight.",
+            "Shake hands out and return to work.",
+          ],
+          cue: "Close the loop: hands soft, legs awake.",
+        },
+      ],
+    },
+  ];
+
   const YOGA_STAGES = [
     {
       id: "yoga-soft",
@@ -1072,6 +1439,9 @@
     lastYogaDate: null,
     yogaUnlockedStage: 0,
     yogaCompletedStages: [],
+    officeSnackCountToday: 0,
+    lastOfficeSnackDate: null,
+    officeSnackStreak: 0,
   };
 
   // ——— State ———
@@ -1091,6 +1461,10 @@
   }
 
   let state = loadState();
+
+  let selectedSnackPackId = null;
+
+
 
   // ——— Helpers ———
   function levelFromXp(xp) {
@@ -1236,6 +1610,34 @@
     return { bonus, messages };
   }
 
+
+  function officeSnacksLoggedToday() {
+    if (state.lastOfficeSnackDate !== todayISO()) return 0;
+    return state.officeSnackCountToday || 0;
+  }
+
+  function officeSnacksRemainingToday() {
+    return Math.max(0, OFFICE_SNACK_MAX_PER_DAY - officeSnacksLoggedToday());
+  }
+
+  function applyOfficeSnackStreak(snackDate) {
+    let messages = [];
+    if (!state.lastOfficeSnackDate) {
+      state.officeSnackStreak = 1;
+    } else {
+      const gap = daysBetween(state.lastOfficeSnackDate, snackDate);
+      if (gap === 0) {
+        // same day — streak unchanged
+      } else if (gap === 1) {
+        state.officeSnackStreak = (state.officeSnackStreak || 0) + 1;
+      } else if (gap > 1) {
+        state.officeSnackStreak = 1;
+        messages.push("Office snack streak reset");
+      }
+    }
+    return { messages };
+  }
+
   function addXp(amount) {
     const before = levelFromXp(state.xp);
     state.xp += amount;
@@ -1310,6 +1712,7 @@
   function renderAll() {
     renderHome();
     renderMini();
+    renderSnacks();
     renderYoga();
     renderQuest();
     renderLogForm();
@@ -1345,6 +1748,7 @@
       let typeBit;
       if (last.type === "rest") typeBit = "Mobility rest day";
       else if (last.type === "mini") typeBit = "Daily Mini";
+      else if (last.type === "office-snack") typeBit = "Office snack";
       else if (last.type === "yoga") typeBit = "Yoga flow";
       else if (last.type === "yoga-unlock") typeBit = "Yoga unlock";
       else if (last.type === "boss") typeBit = "Boss fight";
@@ -1381,6 +1785,33 @@
         miniStatus.classList.add("muted");
         if (miniCard) miniCard.classList.remove("mini-done");
         if (miniBtn) miniBtn.textContent = "Open Daily Mini";
+      }
+    }
+
+
+    const snackStatus = document.getElementById("snack-status-text");
+    const snackBadge = document.getElementById("snack-streak-badge");
+    const snackBtn = document.getElementById("btn-goto-snacks");
+    const snackCard = document.getElementById("snack-status-card");
+    if (snackStatus && snackBadge) {
+      const count = officeSnacksLoggedToday();
+      const streak = state.officeSnackStreak || 0;
+      snackBadge.textContent = `🍪 ${streak}`;
+      const base = `Office snacks today: ${count}/${OFFICE_SNACK_MAX_PER_DAY}`;
+      if (count >= OFFICE_SNACK_MAX_PER_DAY) {
+        snackStatus.textContent = streak
+          ? `${base} · snack streak ${streak}`
+          : `${base} · nice work`;
+        snackStatus.classList.remove("muted");
+        if (snackCard) snackCard.classList.add("snack-done");
+        if (snackBtn) snackBtn.textContent = "View Snacks";
+      } else {
+        snackStatus.textContent = streak
+          ? `${base} · snack streak ${streak} · try one between meetings`
+          : `${base} · try one between meetings`;
+        snackStatus.classList.add("muted");
+        if (snackCard) snackCard.classList.remove("snack-done");
+        if (snackBtn) snackBtn.textContent = "Open Snacks";
       }
     }
 
@@ -1451,6 +1882,93 @@
     if (btn) {
       btn.disabled = done;
       btn.textContent = done ? "Already logged today" : "Log Daily Mini (+5 XP)";
+    }
+  }
+
+
+  function getSnackPack(id) {
+    return OFFICE_SNACKS.find((p) => p.id === id) || null;
+  }
+
+  function renderSnacks() {
+    const count = officeSnacksLoggedToday();
+    const remaining = officeSnacksRemainingToday();
+    const streak = state.officeSnackStreak || 0;
+
+    const countLine = document.getElementById("snack-count-line");
+    if (countLine) {
+      countLine.textContent = remaining
+        ? `Today: ${count}/${OFFICE_SNACK_MAX_PER_DAY} snacks · +${OFFICE_SNACK_XP} XP each · snack streak ${streak}`
+        : `Today: ${count}/${OFFICE_SNACK_MAX_PER_DAY} · max XP for today · snack streak ${streak}`;
+    }
+
+    const banner = document.getElementById("snack-done-banner");
+    if (banner) {
+      banner.hidden = remaining > 0;
+      if (!remaining) {
+        banner.textContent = `Today's snacks: ${OFFICE_SNACK_MAX_PER_DAY}/${OFFICE_SNACK_MAX_PER_DAY} · +${OFFICE_SNACK_XP * OFFICE_SNACK_MAX_PER_DAY} XP max reached`;
+      }
+    }
+
+    const grid = document.getElementById("snack-pack-grid");
+    if (grid) {
+      grid.innerHTML = OFFICE_SNACKS.map((p) => {
+        const selected = selectedSnackPackId === p.id ? " selected" : "";
+        return `<button type="button" class="snack-pack-card${selected}" data-snack-id="${escapeHtml(p.id)}" role="option" aria-selected="${selected ? "true" : "false"}">
+          <strong>${escapeHtml(p.name)}</strong>
+          <span class="snack-pack-meta">${escapeHtml(p.durationLabel)}</span>
+          <span class="snack-pack-blurb">${escapeHtml(p.blurb)}</span>
+        </button>`;
+      }).join("");
+    }
+
+    const detail = document.getElementById("snack-detail-card");
+    const pack = selectedSnackPackId ? getSnackPack(selectedSnackPackId) : null;
+    if (detail) {
+      if (!pack) {
+        detail.hidden = true;
+      } else {
+        detail.hidden = false;
+        const title = document.getElementById("snack-pack-title");
+        const meta = document.getElementById("snack-pack-meta");
+        if (title) title.textContent = pack.name;
+        if (meta) meta.textContent = `${pack.durationLabel} · ${pack.drills.length} moves · desk-friendly`;
+
+        const list = document.getElementById("snack-drills");
+        if (list) {
+          list.innerHTML = pack.drills
+            .map((d, i) => {
+              const open = i === 0 ? " open" : "";
+              const steps = (d.steps || [])
+                .map((s) => `<li>${escapeHtml(s)}</li>`)
+                .join("");
+              return `<li class="drill-card${open}" data-drill-id="${escapeHtml(d.id)}">
+          <button type="button" class="drill-toggle" aria-expanded="${i === 0 ? "true" : "false"}">
+            <span class="drill-toggle-main">
+              <strong>${escapeHtml(d.label)}</strong>
+              <span class="drill-meta">${escapeHtml(d.meta)}</span>
+            </span>
+            <span class="drill-hint">${i === 0 ? "How-to" : "Tap for how-to"}</span>
+            <span class="drill-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="drill-detail"${i === 0 ? "" : " hidden"}>
+            <img class="drill-image" src="${escapeHtml(d.image)}" alt="${escapeHtml(d.label)} illustration" loading="lazy" width="720" height="480" />
+            <ol class="drill-steps">${steps}</ol>
+            <p class="drill-cue">${escapeHtml(d.cue || "")}</p>
+          </div>
+        </li>`;
+            })
+            .join("");
+        }
+
+        const btn = document.getElementById("btn-log-snack");
+        if (btn) {
+          btn.disabled = remaining <= 0;
+          btn.textContent = remaining <= 0
+            ? "Daily snack limit reached"
+            : `Log this snack (+${OFFICE_SNACK_XP} XP)`;
+        }
+      }
     }
   }
 
@@ -1702,18 +2220,21 @@
             ? "Mobility rest"
             : s.type === "mini"
               ? "Daily Mini"
-              : s.type === "yoga"
-                ? "Yoga"
-                : s.type === "yoga-unlock"
-                  ? "Yoga unlock"
-                  : s.type === "boss"
-                    ? "Boss fight"
-                    : s.type === "unlock"
-                      ? "Unlock attempt"
-                      : "Training";
+              : s.type === "office-snack"
+                ? "Office snack"
+                : s.type === "yoga"
+                  ? "Yoga"
+                  : s.type === "yoga-unlock"
+                    ? "Yoga unlock"
+                    : s.type === "boss"
+                      ? "Boss fight"
+                      : s.type === "unlock"
+                        ? "Unlock attempt"
+                        : "Training";
         const meta = [];
         if (s.stageName) meta.push(s.stageName);
         if (s.type === "mini") meta.push(DAILY_MINI.durationLabel + " stretch");
+        if (s.type === "office-snack" && s.durationLabel) meta.push(s.durationLabel);
         if (s.type === "yoga" && s.durationLabel) meta.push(s.durationLabel);
         if (s.drills && s.drills.length) meta.push(`${s.drills.length} drills`);
         if (s.wristFeel) meta.push(`Wrist ${s.wristFeel}/5`);
@@ -1838,6 +2359,61 @@
       notes: "Wrist · shoulder · thoracic · fold · scap · light core",
       drills: DAILY_MINI.drills.map((d) => d.id),
       xpEarned: xp,
+    });
+    saveState(state);
+    renderAll();
+    toast(msgs.join(" · "));
+    if (leveled || levelFromXp(state.xp) > prevLevel) celebrateLevelUp();
+    showView("home");
+  }
+
+
+  function logOfficeSnack(packId) {
+    const date = todayISO();
+    const pack = getSnackPack(packId);
+    if (!pack) {
+      toast("Pick a snack pack first");
+      showView("snacks");
+      return;
+    }
+    const already = officeSnacksLoggedToday();
+    if (already >= OFFICE_SNACK_MAX_PER_DAY) {
+      toast("Already logged 3 office snacks today — come back tomorrow");
+      showView("snacks");
+      return;
+    }
+    const prevLevel = levelFromXp(state.xp);
+    const xp = OFFICE_SNACK_XP;
+    const msgs = [];
+    const isFirstToday = state.lastOfficeSnackDate !== date;
+    if (isFirstToday) {
+      const { messages } = applyOfficeSnackStreak(date);
+      state.officeSnackCountToday = 1;
+      state.lastOfficeSnackDate = date;
+      if (messages.length) msgs.push(...messages);
+    } else {
+      state.officeSnackCountToday = already + 1;
+      state.lastOfficeSnackDate = date;
+    }
+    // Does NOT call applyStreak / mini / yoga streaks
+    const leveled = addXp(xp);
+    const count = state.officeSnackCountToday;
+    msgs.unshift(
+      `Office snack logged! +${xp} XP`,
+      `${pack.name}`,
+      `${count}/${OFFICE_SNACK_MAX_PER_DAY} today`,
+      `Snack streak ${state.officeSnackStreak || 0}`
+    );
+    pushSession({
+      id: Date.now(),
+      type: "office-snack",
+      date,
+      stageName: pack.name,
+      durationLabel: pack.durationLabel,
+      notes: "Desk stretch snack · pain = stop",
+      drills: pack.drills.map((d) => d.id),
+      xpEarned: xp,
+      snackPackId: pack.id,
     });
     saveState(state);
     renderAll();
@@ -2241,6 +2817,48 @@
   bindDrillListToggle(document.getElementById("quest-drills"));
   bindDrillListToggle(document.getElementById("mini-drills"));
   bindDrillListToggle(document.getElementById("yoga-drills"));
+  bindDrillListToggle(document.getElementById("snack-drills"));
+
+
+  const snackGrid = document.getElementById("snack-pack-grid");
+  if (snackGrid) {
+    snackGrid.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-snack-id]");
+      if (!btn) return;
+      selectedSnackPackId = btn.getAttribute("data-snack-id");
+      renderSnacks();
+      const detail = document.getElementById("snack-detail-card");
+      if (detail) detail.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  const btnLogSnack = document.getElementById("btn-log-snack");
+  if (btnLogSnack) {
+    btnLogSnack.addEventListener("click", () => {
+      if (!selectedSnackPackId) {
+        toast("Pick a snack pack first");
+        return;
+      }
+      if (officeSnacksRemainingToday() <= 0) {
+        toast("Daily snack limit reached (3/3)");
+        return;
+      }
+      const pack = getSnackPack(selectedSnackPackId);
+      const name = pack ? pack.name : "snack";
+      if (window.confirm(`Log "${name}" office snack? (+${OFFICE_SNACK_XP} XP · up to ${OFFICE_SNACK_MAX_PER_DAY}/day · does not change other streaks)`)) {
+        logOfficeSnack(selectedSnackPackId);
+      }
+    });
+  }
+
+  const btnSnackBack = document.getElementById("btn-snack-back");
+  if (btnSnackBack) {
+    btnSnackBack.addEventListener("click", () => {
+      selectedSnackPackId = null;
+      renderSnacks();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
   const btnLogYoga = document.getElementById("btn-log-yoga");
   if (btnLogYoga) {

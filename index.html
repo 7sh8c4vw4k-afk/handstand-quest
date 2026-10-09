@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f1115" />
-  <meta name="description" content="Handstand Quest — handstand + yoga mobility trainer for Long" />
+  <meta name="description" content="Handstand Quest — handstand, yoga, and office desk-stretch snacks for Long" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Handstand" />
@@ -33,6 +33,7 @@
 
     <nav class="tabs" role="tablist" aria-label="Main navigation">
       <button class="tab active" data-view="home" role="tab" aria-selected="true">Home</button>
+      <button class="tab" data-view="snacks" role="tab" aria-selected="false">Snacks</button>
       <button class="tab" data-view="mini" role="tab" aria-selected="false">Mini</button>
       <button class="tab" data-view="quest" role="tab" aria-selected="false">Quest</button>
       <button class="tab" data-view="yoga" role="tab" aria-selected="false">Yoga</button>
@@ -68,6 +69,18 @@
         </div>
 
 
+
+        <div class="card snack-status-card" id="snack-status-card">
+          <div class="snack-status-row">
+            <div>
+              <h2>Office Snacks</h2>
+              <p id="snack-status-text" class="muted">Office snacks today: 0/3 · try one between meetings</p>
+            </div>
+            <span id="snack-streak-badge" class="snack-streak" title="Office snack streak">🍪 0</span>
+          </div>
+          <button class="btn ghost block" data-goto="snacks" id="btn-goto-snacks">Open Snacks</button>
+        </div>
+
         <div class="card yoga-status-card" id="yoga-status-card">
           <div class="yoga-status-row">
             <div>
@@ -99,6 +112,7 @@
 
         <div class="action-row">
           <button class="btn primary" data-goto="quest">Today's Quest</button>
+          <button class="btn ghost" data-goto="snacks">Office Snacks</button>
           <button class="btn ghost" data-goto="yoga">Yoga / Mobility</button>
           <button class="btn ghost" data-goto="mini">Daily Mini</button>
           <button class="btn ghost" data-goto="log">Log Session</button>
@@ -119,6 +133,28 @@
         </div>
       </section>
 
+      <!-- SNACKS -->
+      <section id="view-snacks" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Office Snacks</h2>
+          <p class="muted" id="snack-intro">2–4 min desk stretches · chair-friendly · quiet. Pain = stop. Try one between meetings.</p>
+          <p class="snack-done-banner" id="snack-done-banner" hidden>Today's snacks: 3/3 · +9 XP max reached</p>
+          <p class="muted small" id="snack-count-line">Today: 0/3 snacks · +3 XP each</p>
+          <div class="snack-pack-grid" id="snack-pack-grid" role="listbox" aria-label="Snack packs"></div>
+        </div>
+
+        <div class="card" id="snack-detail-card" hidden>
+          <h2 id="snack-pack-title">Snack</h2>
+          <p class="muted" id="snack-pack-meta">~3 min</p>
+          <p class="muted small snack-safety">Gentle only — no neck cracking. Stop if anything hurts.</p>
+          <ol class="drill-list" id="snack-drills"></ol>
+          <div class="action-row">
+            <button class="btn primary block" id="btn-log-snack">Log this snack (+3 XP)</button>
+            <button class="btn ghost block" id="btn-snack-back">Back to packs</button>
+          </div>
+          <p class="muted small" id="snack-footnote">Up to 3 snacks per day. Own snack streak. Does not change handstand, mini, or yoga streaks.</p>
+        </div>
+      </section>
 
       <!-- YOGA -->
       <section id="view-yoga" class="view" role="tabpanel" hidden>
