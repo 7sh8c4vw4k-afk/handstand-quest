@@ -873,3 +873,65 @@ input[type="range"] {
   margin-top: 10px;
 }
 
+
+
+/* Yoga / Mobility status on Home */
+.yoga-status-card .yoga-status-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.yoga-status-card h2 {
+  margin-bottom: 4px;
+}
+
+.yoga-stage-line {
+  margin: 0 0 4px;
+  font-size: 0.92rem;
+}
+
+.yoga-status-card #yoga-status-text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.yoga-streak {
+  flex-shrink: 0;
+  background: rgba(126, 184, 255, 0.12);
+  color: #7eb8ff;
+  border: 1px solid rgba(126, 184, 255, 0.35);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.yoga-status-card.yoga-done {
+  border-color: rgba(126, 184, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(126, 184, 255, 0.12), var(--shadow);
+}
+
+.yoga-done-banner {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(126, 184, 255, 0.12);
+  color: #7eb8ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(126, 184, 255, 0.28);
+}
+
+.yoga-safety {
+  margin: 0 0 12px;
+}
+
+#view-yoga .small {
+  margin-top: 10px;
+}

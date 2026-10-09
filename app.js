@@ -557,6 +557,506 @@
     ],
   };
 
+  const YOGA_STAGES = [
+    {
+      id: "yoga-soft",
+      name: "Soft start",
+      durationLabel: "~10–12 min",
+      unlockGoal: "Finish 3 calm soft-start flows with no sharp pain",
+      tips: "Breath first. Soft joints. Pain = ease off — this is mobility, not advanced yoga.",
+      drills: [
+        {
+          id: "yoga-breath",
+          label: "Seated breath",
+          meta: "2 min · easy",
+          image: "exercises/seated-breath.png",
+          steps: [
+            "Sit comfortably (cross-legged or on a chair).",
+            "Relax the jaw and shoulders; lengthen the spine gently.",
+            "Inhale through the nose for a slow count of 4.",
+            "Exhale for a slow count of 4–6; repeat for ~2 minutes.",
+            "If the mind wanders, return to the breath — no forcing.",
+          ],
+          cue: "Calm breath sets the tone — nothing to force yet.",
+        },
+        {
+          id: "yoga-wrist",
+          label: "Gentle wrist rocks",
+          meta: "60s",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Palms on the floor or thighs; rock softly forward and back.",
+            "Add slow wrist circles both ways.",
+            "Keep pressure light — wrists stay happy for later handstand days.",
+            "Stop if anything feels sharp.",
+          ],
+          cue: "Warm wrists gently — they share the load with handstands.",
+        },
+        {
+          id: "yoga-cat-cow",
+          label: "Cat-cow",
+          meta: "90s",
+          image: "exercises/cat-cow.png",
+          steps: [
+            "On all fours, inhale to drop the belly and lift the gaze (cow).",
+            "Exhale to round the spine and tuck the chin (cat).",
+            "Match movement to breath for ~90 seconds.",
+            "Move slowly — warm oil, not bouncing.",
+          ],
+          cue: "Wake the spine with breath-led motion.",
+        },
+        {
+          id: "yoga-child",
+          label: "Child's pose",
+          meta: "60–90s",
+          image: "exercises/childs-pose.png",
+          steps: [
+            "Kneel, sit hips toward heels, fold torso forward.",
+            "Arms reach forward or rest by your sides — whichever feels softer.",
+            "Forehead toward the floor or a cushion.",
+            "Breathe into the back ribs; ease out slowly.",
+          ],
+          cue: "Rest pose — sink and breathe, never push the knees.",
+        },
+        {
+          id: "yoga-butterfly-soft",
+          label: "Butterfly (easy)",
+          meta: "60s",
+          image: "exercises/butterfly.png",
+          steps: [
+            "Sit tall; bring soles of the feet together.",
+            "Let knees fall open only as far as comfortable.",
+            "Hold feet or shins; optional tiny forward hinge.",
+            "Soft knees and hips — no pressing the thighs down.",
+          ],
+          cue: "Hips open like a book — gravity does the work.",
+        },
+        {
+          id: "yoga-twist-soft",
+          label: "Seated twist (gentle)",
+          meta: "30s/side",
+          image: "exercises/seated-twist.png",
+          steps: [
+            "Sit tall; cross one ankle over the other thigh or keep legs easy.",
+            "Inhale length; exhale rotate gently toward the top knee.",
+            "Use the hand lightly on the knee — no yanking.",
+            "Switch sides after ~30s.",
+          ],
+          cue: "Twist from the belly, not the neck — soft and short.",
+        },
+      ],
+    },
+    {
+      id: "yoga-hips",
+      name: "Hips openers",
+      durationLabel: "~12–15 min",
+      unlockGoal: "Hold butterfly or a pigeon variation ~60s/side without forcing",
+      tips: "Hips like patience. Use props (blocks, pillows). Sharp groin pain = back off.",
+      drills: [
+        {
+          id: "yoga-hips-breath",
+          label: "Breath + easy fold",
+          meta: "90s",
+          image: "exercises/seated-breath.png",
+          steps: [
+            "Sit or stand; take 5 slow breaths.",
+            "Optional: soft forward fold with bent knees to wake the hips.",
+            "Arrive before you stretch.",
+          ],
+          cue: "Arrive in the body before you ask for range.",
+        },
+        {
+          id: "yoga-butterfly",
+          label: "Butterfly",
+          meta: "90s",
+          image: "exercises/butterfly.png",
+          steps: [
+            "Soles together; sit on a cushion if the low back rounds.",
+            "Let knees drop with gravity; hands on feet or floor behind you.",
+            "Optional: fold forward a little while keeping the spine long.",
+            "Breathe into the inner thighs; ease out.",
+          ],
+          cue: "Long spine first — depth comes second.",
+        },
+        {
+          id: "yoga-pigeon",
+          label: "Pigeon (or figure-four)",
+          meta: "45–60s/side",
+          image: "exercises/pigeon.png",
+          steps: [
+            "From all fours, bring one shin forward (knee near wrist if available).",
+            "Square the hips as best you can; pad the front hip if needed.",
+            "Keep the back leg long; fold forward only if comfortable.",
+            "Figure-four on your back is a perfect substitute.",
+            "Switch sides; never force the front knee.",
+          ],
+          cue: "Prop the hip — intensity should feel stretchy, not pinchy.",
+        },
+        {
+          id: "yoga-warrior-soft",
+          label: "Warrior II (short)",
+          meta: "30s/side",
+          image: "exercises/warrior-ii.png",
+          steps: [
+            "Wide stance; front knee tracks over the ankle.",
+            "Arms reach to the sides at shoulder height.",
+            "Hips and chest face the long edge of your mat.",
+            "Keep it short — this is hip opening, not a lunge contest.",
+          ],
+          cue: "Front knee friendly, back leg strong — breathe sideways.",
+        },
+        {
+          id: "yoga-hips-child",
+          label: "Child's pose reset",
+          meta: "60s",
+          image: "exercises/childs-pose.png",
+          steps: [
+            "Fold into child's pose; widen the knees if hips feel tight.",
+            "Rock gently side to side if that feels good.",
+            "Use this as a reset between stronger hip work.",
+          ],
+          cue: "Reset and thank the hips.",
+        },
+        {
+          id: "yoga-hips-twist",
+          label: "Seated twist",
+          meta: "30s/side",
+          image: "exercises/seated-twist.png",
+          steps: [
+            "Sit tall after hip work; gentle twist each side.",
+            "Exhale into the rotation; keep both sit bones heavy.",
+            "Release slowly.",
+          ],
+          cue: "Close the hip session with an easy twist.",
+        },
+      ],
+    },
+    {
+      id: "yoga-hamstrings",
+      name: "Hamstrings / forward folds",
+      durationLabel: "~12–15 min",
+      unlockGoal: "Comfortable forward fold with soft knees for ~60s",
+      tips: "Bend the knees freely. Stretch sensation is OK; pain behind the knee is not.",
+      drills: [
+        {
+          id: "yoga-ham-warm",
+          label: "Cat-cow warm-up",
+          meta: "60s",
+          image: "exercises/cat-cow.png",
+          steps: [
+            "Flow cat-cow for a minute to wake the spine and hips.",
+            "Then shift toward a gentle downward dog or pike.",
+          ],
+          cue: "Warm the chain before you fold.",
+        },
+        {
+          id: "yoga-down-dog",
+          label: "Downward dog (soft knees)",
+          meta: "45–60s",
+          image: "exercises/downward-dog.png",
+          steps: [
+            "Hands and feet on the floor; lift hips into an inverted V.",
+            "Bend the knees as much as you need — heels don't have to touch.",
+            "Press the floor away; long spine over straight legs.",
+            "Pedal the feet gently; come down if shoulders fatigue.",
+          ],
+          cue: "Soft knees welcome — length in the spine beats flat legs.",
+        },
+        {
+          id: "yoga-forward-fold",
+          label: "Standing forward fold",
+          meta: "60s",
+          image: "exercises/forward-fold.png",
+          steps: [
+            "Hinge at the hips; let the head hang.",
+            "Hold elbows or reach toward the floor with bent knees.",
+            "Shift weight slightly forward into the balls of the feet.",
+            "Slowly roll up vertebra by vertebra.",
+          ],
+          cue: "Hang and breathe — gravity stretches, you don't yank.",
+        },
+        {
+          id: "yoga-seated-fold",
+          label: "Seated forward fold / pike",
+          meta: "60–90s",
+          image: "exercises/forward-fold.png",
+          steps: [
+            "Sit with legs extended; bend knees generously if hamstrings are tight.",
+            "Hinge from the hips with a long spine; hold shins or feet.",
+            "When the spine rounds a lot, bend the knees more.",
+            "Stay ~60–90s; roll up slowly.",
+          ],
+          cue: "Reach chest toward toes — not forehead at any cost.",
+        },
+        {
+          id: "yoga-ham-butterfly",
+          label: "Butterfly cool-out",
+          meta: "60s",
+          image: "exercises/butterfly.png",
+          steps: [
+            "Soles together after folds to change the stretch angle.",
+            "Optional tiny fold; keep it easy.",
+          ],
+          cue: "Change the angle so hamstrings can let go.",
+        },
+        {
+          id: "yoga-ham-child",
+          label: "Child's pose",
+          meta: "60s",
+          image: "exercises/childs-pose.png",
+          steps: [
+            "Finish folded and quiet in child's pose.",
+            "Notice the breath in the back body.",
+          ],
+          cue: "End soft — folds shouldn't leave you strained.",
+        },
+      ],
+    },
+    {
+      id: "yoga-shoulders",
+      name: "Shoulders & upper back",
+      durationLabel: "~12–15 min",
+      unlockGoal: "Puppy / thread or wall angels feel open without pinching",
+      tips: "Ribs soft. Neck long. Complements handstand shoulder work — don't overdo same-day intensity.",
+      drills: [
+        {
+          id: "yoga-sh-wrist",
+          label: "Wrist + shoulder warm",
+          meta: "90s",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Wrist rocks and circles (~45s).",
+            "Shake the hands out; shrug and roll the shoulders.",
+          ],
+          cue: "Warm the wrists before you load or open the shoulders.",
+        },
+        {
+          id: "yoga-sh-opener",
+          label: "Puppy / thread-the-needle",
+          meta: "60s/side or ~2 min",
+          image: "exercises/shoulder-opener.png",
+          steps: [
+            "Puppy: from all fours, walk hands forward and lower the chest.",
+            "Keep hips over knees; breathe into the armpits.",
+            "Thread-the-needle: slide one arm under; hold, then switch.",
+            "No forcing the forehead to the floor.",
+          ],
+          cue: "Open the upper back without dumping into the neck.",
+        },
+        {
+          id: "yoga-sh-cat",
+          label: "Cat-cow (thoracic focus)",
+          meta: "60–90s",
+          image: "exercises/cat-cow.png",
+          steps: [
+            "Emphasize the mid-back wave more than the low back.",
+            "Slow reps with full exhales on the round.",
+          ],
+          cue: "Mobilise the mid-back — handstands love this.",
+        },
+        {
+          id: "yoga-sh-angels",
+          label: "Wall angels",
+          meta: "8–10 reps",
+          image: "exercises/wall-angels.png",
+          steps: [
+            "Back near a wall; arms in a cactus/W shape.",
+            "Slide toward a Y and back down without flaring the ribs.",
+            "Smaller range is fine if shoulders are sticky.",
+          ],
+          cue: "Quiet ribs, smooth scap motion.",
+        },
+        {
+          id: "yoga-cobra",
+          label: "Cobra (gentle)",
+          meta: "3 × 20–30s",
+          image: "exercises/cobra.png",
+          steps: [
+            "Lie on your belly; hands under shoulders.",
+            "Press lightly to lift the chest; keep elbows soft and pelvis heavy.",
+            "Look forward or slightly down — don't crank the neck.",
+            "Lower with control; repeat for 3 easy holds.",
+          ],
+          cue: "Lift the heart, heavy hips — tiny backbend is enough.",
+        },
+        {
+          id: "yoga-sh-child",
+          label: "Child's pose",
+          meta: "60s",
+          image: "exercises/childs-pose.png",
+          steps: [
+            "Fold forward to release the spine after backbends.",
+            "Reach arms forward for a soft shoulder stretch, or stack arms under the forehead.",
+          ],
+          cue: "Counter the backbend with a soft fold.",
+        },
+      ],
+    },
+    {
+      id: "yoga-flow-a",
+      name: "Full-body flow A",
+      durationLabel: "~15–18 min",
+      unlockGoal: "Move through Flow A twice with steady breath",
+      tips: "Link poses with breath. Skip or shorten anything that irritates wrists or hips.",
+      drills: [
+        {
+          id: "yoga-fa-cat",
+          label: "Cat-cow → down dog",
+          meta: "2 min",
+          image: "exercises/downward-dog.png",
+          steps: [
+            "Start with 5 cat-cows.",
+            "Tuck toes, lift hips into downward dog; pedal the feet.",
+            "Soft knees; hold ~3 breaths.",
+          ],
+          cue: "Warm, then invert gently — breath leads.",
+        },
+        {
+          id: "yoga-fa-warrior",
+          label: "Warrior II each side",
+          meta: "30–40s/side",
+          image: "exercises/warrior-ii.png",
+          steps: [
+            "Step to a wide stance from down dog or standing.",
+            "Warrior II on the right; breathe; then left.",
+            "Front knee tracks; arms soft at shoulder height.",
+          ],
+          cue: "Strong legs, soft face — gaze over the front hand.",
+        },
+        {
+          id: "yoga-fa-fold",
+          label: "Forward fold",
+          meta: "45s",
+          image: "exercises/forward-fold.png",
+          steps: [
+            "From standing, fold with bent knees.",
+            "Hold elbows; sway gently if it feels good.",
+          ],
+          cue: "Hang between standing poses.",
+        },
+        {
+          id: "yoga-fa-cobra",
+          label: "Cobra",
+          meta: "2 × 20s",
+          image: "exercises/cobra.png",
+          steps: [
+            "Lower to the belly; two gentle cobras with breath.",
+            "Keep it low and comfortable.",
+          ],
+          cue: "Open the front body without forcing the backbend.",
+        },
+        {
+          id: "yoga-fa-pigeon",
+          label: "Pigeon each side",
+          meta: "45s/side",
+          image: "exercises/pigeon.png",
+          steps: [
+            "Pigeon or figure-four each side.",
+            "Use padding; stay only where breath is easy.",
+          ],
+          cue: "Hip openers inside the flow — quality over depth.",
+        },
+        {
+          id: "yoga-fa-child",
+          label: "Child's pose close",
+          meta: "90s",
+          image: "exercises/childs-pose.png",
+          steps: [
+            "Finish in child's pose; count 10 slow breaths.",
+            "Optional seated breath for another minute.",
+          ],
+          cue: "Land the flow — nervous system first.",
+        },
+      ],
+    },
+    {
+      id: "yoga-flow-b",
+      name: "Full-body flow B",
+      durationLabel: "~15–20 min",
+      unlockGoal: "Hold key poses 45–60s with calm breathing",
+      tips: "Longer holds, same kindness. You're building flexibility to support handstands — not forcing splits.",
+      drills: [
+        {
+          id: "yoga-fb-breath",
+          label: "Seated breath",
+          meta: "2 min",
+          image: "exercises/seated-breath.png",
+          steps: [
+            "Arrive with 2 minutes of steady nasal breathing.",
+            "Set an intention: soft strength.",
+          ],
+          cue: "Longer practice starts quieter.",
+        },
+        {
+          id: "yoga-fb-dog",
+          label: "Downward dog (longer)",
+          meta: "60–75s",
+          image: "exercises/downward-dog.png",
+          steps: [
+            "Hold down dog with soft knees; pedal occasionally.",
+            "If shoulders tire, drop to child's pose and return.",
+          ],
+          cue: "Earn the hold with soft knees and active hands.",
+        },
+        {
+          id: "yoga-fb-warrior",
+          label: "Warrior II (longer)",
+          meta: "45s/side",
+          image: "exercises/warrior-ii.png",
+          steps: [
+            "Warrior II each side for ~45s.",
+            "Check front knee tracking; soften the shoulders away from the ears.",
+          ],
+          cue: "Stay tall in the torso while the legs work.",
+        },
+        {
+          id: "yoga-fb-pigeon",
+          label: "Pigeon (longer)",
+          meta: "60s/side",
+          image: "exercises/pigeon.png",
+          steps: [
+            "One minute per side; prop generously.",
+            "Fold only if the hip stays level and calm.",
+          ],
+          cue: "Longer ≠ deeper — same depth, more breath.",
+        },
+        {
+          id: "yoga-fb-twist",
+          label: "Seated twist",
+          meta: "40s/side",
+          image: "exercises/seated-twist.png",
+          steps: [
+            "Seated twist each side after hips.",
+            "Inhale length; exhale rotate.",
+          ],
+          cue: "Wring out gently after the holds.",
+        },
+        {
+          id: "yoga-fb-butterfly",
+          label: "Butterfly hold",
+          meta: "90s",
+          image: "exercises/butterfly.png",
+          steps: [
+            "Soles together; long easy hold.",
+            "Optional forehead toward feet with a rounded or long spine — choose comfort.",
+          ],
+          cue: "Let gravity finish the session.",
+        },
+        {
+          id: "yoga-fb-child",
+          label: "Child's pose + breath",
+          meta: "2 min",
+          image: "exercises/childs-pose.png",
+          steps: [
+            "Child's pose, then sit for a final minute of breath.",
+            "Notice wrists, hips, and mood before you leave the mat.",
+          ],
+          cue: "Close with stillness — mobility work sticks better this way.",
+        },
+      ],
+    },
+  ];
+
   const DEFAULT_STATE = {
     name: "Long",
     xp: 0,
@@ -568,6 +1068,10 @@
     bossLogs: [],
     miniStreak: 0,
     lastMiniDate: null,
+    yogaStreak: 0,
+    lastYogaDate: null,
+    yogaUnlockedStage: 0,
+    yogaCompletedStages: [],
   };
 
   // ——— State ———
@@ -691,6 +1195,47 @@
     return state.lastMiniDate === todayISO();
   }
 
+  function yogaDoneToday() {
+    return state.lastYogaDate === todayISO();
+  }
+
+  function currentYogaStageIndex() {
+    return Math.min(state.yogaUnlockedStage || 0, YOGA_STAGES.length - 1);
+  }
+
+  function nextYogaStageIndex() {
+    const cur = state.yogaUnlockedStage || 0;
+    return cur < YOGA_STAGES.length - 1 ? cur + 1 : null;
+  }
+
+  function applyYogaStreak(yogaDate) {
+    let bonus = 0;
+    let messages = [];
+    let incremented = false;
+    if (!state.lastYogaDate) {
+      state.yogaStreak = 1;
+      incremented = true;
+    } else {
+      const gap = daysBetween(state.lastYogaDate, yogaDate);
+      if (gap === 0) {
+        // same day — streak unchanged
+      } else if (gap === 1) {
+        state.yogaStreak += 1;
+        incremented = true;
+      } else if (gap > 1) {
+        state.yogaStreak = 1;
+        incremented = true;
+        messages.push("Yoga streak reset");
+      }
+    }
+    if (incremented && state.yogaStreak > 0 && state.yogaStreak % STREAK_BONUS_EVERY === 0) {
+      bonus = STREAK_BONUS_XP;
+      messages.push(`Yoga streak ×${state.yogaStreak}! +${STREAK_BONUS_XP} XP`);
+    }
+    state.lastYogaDate = yogaDate;
+    return { bonus, messages };
+  }
+
   function addXp(amount) {
     const before = levelFromXp(state.xp);
     state.xp += amount;
@@ -765,6 +1310,7 @@
   function renderAll() {
     renderHome();
     renderMini();
+    renderYoga();
     renderQuest();
     renderLogForm();
     renderMap();
@@ -799,6 +1345,8 @@
       let typeBit;
       if (last.type === "rest") typeBit = "Mobility rest day";
       else if (last.type === "mini") typeBit = "Daily Mini";
+      else if (last.type === "yoga") typeBit = "Yoga flow";
+      else if (last.type === "yoga-unlock") typeBit = "Yoga unlock";
       else if (last.type === "boss") typeBit = "Boss fight";
       else if (last.type === "unlock") typeBit = "Unlock attempt";
       else typeBit = `Stage: ${last.stageName || "—"}`;
@@ -833,6 +1381,32 @@
         miniStatus.classList.add("muted");
         if (miniCard) miniCard.classList.remove("mini-done");
         if (miniBtn) miniBtn.textContent = "Open Daily Mini";
+      }
+    }
+
+    const yogaStageEl = document.getElementById("yoga-stage-name");
+    const yogaStatus = document.getElementById("yoga-status-text");
+    const yogaBadge = document.getElementById("yoga-streak-badge");
+    const yogaBtn = document.getElementById("btn-goto-yoga");
+    const yogaCard = document.getElementById("yoga-status-card");
+    if (yogaStageEl && yogaStatus && yogaBadge) {
+      const yStage = YOGA_STAGES[currentYogaStageIndex()];
+      const yDone = yogaDoneToday();
+      const yStreak = state.yogaStreak || 0;
+      yogaStageEl.textContent = yStage.name;
+      yogaBadge.textContent = `🧘 ${yStreak}`;
+      if (yDone) {
+        yogaStatus.textContent = `Done today · yoga streak ${yStreak}`;
+        yogaStatus.classList.remove("muted");
+        if (yogaCard) yogaCard.classList.add("yoga-done");
+        if (yogaBtn) yogaBtn.textContent = "View Yoga";
+      } else {
+        yogaStatus.textContent = yStreak
+          ? `Not done today · yoga streak ${yStreak} · ${yStage.durationLabel}`
+          : `Not done today · ${yStage.durationLabel} mobility`;
+        yogaStatus.classList.add("muted");
+        if (yogaCard) yogaCard.classList.remove("yoga-done");
+        if (yogaBtn) yogaBtn.textContent = "Open Yoga";
       }
     }
   }
@@ -877,6 +1451,117 @@
     if (btn) {
       btn.disabled = done;
       btn.textContent = done ? "Already logged today" : "Log Daily Mini (+5 XP)";
+    }
+  }
+
+  function renderYoga() {
+    const idx = currentYogaStageIndex();
+    const stage = YOGA_STAGES[idx];
+    const label = document.getElementById("yoga-stage-label");
+    if (label) {
+      label.textContent = `Stage ${idx + 1} of ${YOGA_STAGES.length} · ${stage.durationLabel}`;
+    }
+    const title = document.getElementById("yoga-stage-title");
+    if (title) title.textContent = stage.name;
+
+    const list = document.getElementById("yoga-drills");
+    if (list) {
+      list.innerHTML = stage.drills
+        .map((d, i) => {
+          const open = i === 0 ? " open" : "";
+          const steps = (d.steps || [])
+            .map((s) => `<li>${escapeHtml(s)}</li>`)
+            .join("");
+          return `<li class="drill-card${open}" data-drill-id="${escapeHtml(d.id)}">
+          <button type="button" class="drill-toggle" aria-expanded="${i === 0 ? "true" : "false"}">
+            <span class="drill-toggle-main">
+              <strong>${escapeHtml(d.label)}</strong>
+              <span class="drill-meta">${escapeHtml(d.meta)}</span>
+            </span>
+            <span class="drill-hint">${i === 0 ? "How-to" : "Tap for how-to"}</span>
+            <span class="drill-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="drill-detail"${i === 0 ? "" : " hidden"}>
+            <img class="drill-image" src="${escapeHtml(d.image)}" alt="${escapeHtml(d.label)} illustration" loading="lazy" width="720" height="480" />
+            <ol class="drill-steps">${steps}</ol>
+            <p class="drill-cue">${escapeHtml(d.cue || "")}</p>
+          </div>
+        </li>`;
+        })
+        .join("");
+    }
+
+    const done = yogaDoneToday();
+    const banner = document.getElementById("yoga-done-banner");
+    const btn = document.getElementById("btn-log-yoga");
+    if (banner) {
+      banner.hidden = !done;
+      if (done) {
+        banner.textContent = `Done today · +12 XP · yoga streak ${state.yogaStreak || 0}`;
+      }
+    }
+    if (btn) {
+      btn.disabled = done;
+      btn.textContent = done ? "Already logged today" : "Log Yoga flow (+12 XP)";
+    }
+
+    const map = document.getElementById("yoga-stage-map");
+    if (map) {
+      const cur = currentYogaStageIndex();
+      map.innerHTML = YOGA_STAGES.map((s, i) => {
+        let status = "locked";
+        let icon = "🔒";
+        let statusText = "Locked";
+        if ((state.yogaCompletedStages || []).includes(i) || i < cur) {
+          status = "done";
+          icon = "✓";
+          statusText = "Done";
+        }
+        if (i === cur) {
+          if ((state.yogaCompletedStages || []).includes(i)) {
+            status = "done";
+            icon = "✓";
+            statusText = "Mastered";
+          } else {
+            status = "current";
+            icon = String(i + 1);
+            statusText = "Current";
+          }
+        }
+        if (i > cur) {
+          status = "locked";
+          icon = "🔒";
+          statusText = "Locked";
+        }
+        return `<li class="stage-item ${status}">
+          <div class="stage-icon" aria-hidden="true">${icon}</div>
+          <div class="stage-body">
+            <h3>${i + 1}. ${escapeHtml(s.name)}</h3>
+            <p>${escapeHtml(s.durationLabel)} · Unlock: ${escapeHtml(s.unlockGoal)}</p>
+            <span class="stage-status">${statusText}</span>
+          </div>
+        </li>`;
+      }).join("");
+    }
+
+    const unlockCriteria = document.getElementById("yoga-unlock-criteria");
+    const unlockBtn = document.getElementById("btn-yoga-unlock");
+    if (unlockCriteria && unlockBtn) {
+      const next = nextYogaStageIndex();
+      if (next === null) {
+        const finished = (state.yogaCompletedStages || []).includes(idx);
+        unlockCriteria.textContent = finished
+          ? "You've completed every yoga stage. Keep flowing for streak + mobility XP."
+          : `Final goal: ${stage.unlockGoal}. Self-report when ready (+20 XP).`;
+        unlockBtn.disabled = finished;
+        unlockBtn.textContent = finished ? "All yoga stages complete" : "I hit the goal — mark complete (+20 XP)";
+      } else {
+        const nextStage = YOGA_STAGES[next];
+        unlockCriteria.textContent =
+          `To unlock “${nextStage.name}”: ${stage.unlockGoal}. Self-report when ready (+20 XP).`;
+        unlockBtn.disabled = false;
+        unlockBtn.textContent = "I hit the goal — unlock next (+20 XP)";
+      }
     }
   }
 
@@ -1017,14 +1702,19 @@
             ? "Mobility rest"
             : s.type === "mini"
               ? "Daily Mini"
-              : s.type === "boss"
-                ? "Boss fight"
-                : s.type === "unlock"
-                  ? "Unlock attempt"
-                  : "Training";
+              : s.type === "yoga"
+                ? "Yoga"
+                : s.type === "yoga-unlock"
+                  ? "Yoga unlock"
+                  : s.type === "boss"
+                    ? "Boss fight"
+                    : s.type === "unlock"
+                      ? "Unlock attempt"
+                      : "Training";
         const meta = [];
         if (s.stageName) meta.push(s.stageName);
         if (s.type === "mini") meta.push(DAILY_MINI.durationLabel + " stretch");
+        if (s.type === "yoga" && s.durationLabel) meta.push(s.durationLabel);
         if (s.drills && s.drills.length) meta.push(`${s.drills.length} drills`);
         if (s.wristFeel) meta.push(`Wrist ${s.wristFeel}/5`);
         if (s.holdTime != null && s.holdTime !== "") meta.push(`${s.holdTime}s hold`);
@@ -1154,6 +1844,110 @@
     toast(msgs.join(" · "));
     if (leveled || levelFromXp(state.xp) > prevLevel) celebrateLevelUp();
     showView("home");
+  }
+
+  function logYogaFlow() {
+    const date = todayISO();
+    if (state.lastYogaDate === date) {
+      toast("Yoga already logged today — come back tomorrow");
+      showView("yoga");
+      return;
+    }
+    const prevLevel = levelFromXp(state.xp);
+    const stage = YOGA_STAGES[currentYogaStageIndex()];
+    let xp = 12;
+    const { bonus, messages } = applyYogaStreak(date);
+    const msgs = [`Yoga flow done! +${xp} XP`, `Yoga streak ${state.yogaStreak}`];
+    if (bonus) {
+      xp += bonus;
+      msgs.push(...messages);
+    } else if (messages.length) {
+      msgs.push(...messages);
+    }
+    // Does NOT call applyStreak — handstand main streak unchanged
+    const leveled = addXp(xp);
+    pushSession({
+      id: Date.now(),
+      type: "yoga",
+      date,
+      stageIndex: currentYogaStageIndex(),
+      stageName: stage.name,
+      durationLabel: stage.durationLabel,
+      notes: "Gentle mobility · pain = ease off",
+      drills: stage.drills.map((d) => d.id),
+      xpEarned: xp,
+    });
+    saveState(state);
+    renderAll();
+    toast(msgs.join(" · "));
+    if (leveled || levelFromXp(state.xp) > prevLevel) celebrateLevelUp();
+    showView("home");
+  }
+
+  function attemptYogaUnlock() {
+    const idx = currentYogaStageIndex();
+    const stage = YOGA_STAGES[idx];
+    const next = nextYogaStageIndex();
+    const date = todayISO();
+    const prevLevel = levelFromXp(state.xp);
+
+    if (next === null) {
+      if ((state.yogaCompletedStages || []).includes(idx)) {
+        toast("All yoga stages already complete");
+        return;
+      }
+      const confirmed = window.confirm(
+        `Mark final yoga stage complete?\n\n“${stage.unlockGoal}”\n\nOK = +20 XP and mark complete.`
+      );
+      if (!confirmed) return;
+      const xp = 20;
+      const leveled = addXp(xp);
+      if (!state.yogaCompletedStages) state.yogaCompletedStages = [];
+      if (!state.yogaCompletedStages.includes(idx)) state.yogaCompletedStages.push(idx);
+      pushSession({
+        id: Date.now(),
+        type: "yoga-unlock",
+        date,
+        stageName: stage.name,
+        notes: "Final yoga stage marked complete",
+        xpEarned: xp,
+        unlocked: true,
+      });
+      saveState(state);
+      renderAll();
+      toast("Yoga path complete! +20 XP");
+      fireConfetti();
+      if (leveled || levelFromXp(state.xp) > prevLevel) celebrateLevelUp();
+      showView("yoga");
+      return;
+    }
+
+    const nextStage = YOGA_STAGES[next];
+    const confirmed = window.confirm(
+      `Unlock next yoga stage?\n\nGoal: “${stage.unlockGoal}”\nNext: ${nextStage.name}\n\nOK = unlock (+20 XP).`
+    );
+    if (!confirmed) return;
+
+    const xp = 20;
+    const leveled = addXp(xp);
+    if (!state.yogaCompletedStages) state.yogaCompletedStages = [];
+    if (!state.yogaCompletedStages.includes(idx)) state.yogaCompletedStages.push(idx);
+    state.yogaUnlockedStage = next;
+    pushSession({
+      id: Date.now(),
+      type: "yoga-unlock",
+      date,
+      stageName: nextStage.name,
+      notes: `Unlocked yoga: ${nextStage.name}`,
+      xpEarned: xp,
+      unlocked: true,
+    });
+    saveState(state);
+    renderAll();
+    toast(`Yoga stage unlocked! +20 XP · ${nextStage.name}`);
+    fireConfetti();
+    if (leveled || levelFromXp(state.xp) > prevLevel) celebrateLevelUp();
+    showView("yoga");
   }
 
   function attemptUnlock() {
@@ -1446,6 +2240,27 @@
 
   bindDrillListToggle(document.getElementById("quest-drills"));
   bindDrillListToggle(document.getElementById("mini-drills"));
+  bindDrillListToggle(document.getElementById("yoga-drills"));
+
+  const btnLogYoga = document.getElementById("btn-log-yoga");
+  if (btnLogYoga) {
+    btnLogYoga.addEventListener("click", () => {
+      if (yogaDoneToday()) {
+        toast("Yoga already logged today");
+        return;
+      }
+      if (window.confirm("Log today's Yoga flow? (+12 XP · own streak · does not change handstand streak)")) {
+        logYogaFlow();
+      }
+    });
+  }
+
+  const btnYogaUnlock = document.getElementById("btn-yoga-unlock");
+  if (btnYogaUnlock) {
+    btnYogaUnlock.addEventListener("click", () => {
+      attemptYogaUnlock();
+    });
+  }
 
   document.getElementById("drill-checkboxes").addEventListener("click", (e) => {
     const btn = e.target.closest(".log-howto-btn");

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f1115" />
-  <meta name="description" content="Handstand Quest — beginner progression trainer for Long" />
+  <meta name="description" content="Handstand Quest — handstand + yoga mobility trainer for Long" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Handstand" />
@@ -35,6 +35,7 @@
       <button class="tab active" data-view="home" role="tab" aria-selected="true">Home</button>
       <button class="tab" data-view="mini" role="tab" aria-selected="false">Mini</button>
       <button class="tab" data-view="quest" role="tab" aria-selected="false">Quest</button>
+      <button class="tab" data-view="yoga" role="tab" aria-selected="false">Yoga</button>
       <button class="tab" data-view="log" role="tab" aria-selected="false">Log</button>
       <button class="tab" data-view="map" role="tab" aria-selected="false">Map</button>
       <button class="tab" data-view="history" role="tab" aria-selected="false">History</button>
@@ -66,6 +67,18 @@
           <button class="btn ghost block" data-goto="mini" id="btn-goto-mini">Open Daily Mini</button>
         </div>
 
+
+        <div class="card yoga-status-card" id="yoga-status-card">
+          <div class="yoga-status-row">
+            <div>
+              <h2>Yoga / Mobility</h2>
+              <p class="stage-line yoga-stage-line">Stage: <strong id="yoga-stage-name">Soft start</strong></p>
+              <p id="yoga-status-text" class="muted">Not done today · gentle mobility</p>
+            </div>
+            <span id="yoga-streak-badge" class="yoga-streak" title="Yoga streak">🧘 0</span>
+          </div>
+          <button class="btn ghost block" data-goto="yoga" id="btn-goto-yoga">Open Yoga</button>
+        </div>
         <div class="card" id="last-session-card">
           <h2>Last session</h2>
           <p id="last-session-summary" class="muted">No sessions yet — start your first quest!</p>
@@ -86,6 +99,7 @@
 
         <div class="action-row">
           <button class="btn primary" data-goto="quest">Today's Quest</button>
+          <button class="btn ghost" data-goto="yoga">Yoga / Mobility</button>
           <button class="btn ghost" data-goto="mini">Daily Mini</button>
           <button class="btn ghost" data-goto="log">Log Session</button>
         </div>
@@ -102,6 +116,33 @@
             <button class="btn primary block" id="btn-log-mini">Log Daily Mini (+5 XP)</button>
           </div>
           <p class="muted small" id="mini-footnote">Main session streak stays separate. Mini has its own streak for consecutive calendar days.</p>
+        </div>
+      </section>
+
+
+      <!-- YOGA -->
+      <section id="view-yoga" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2 id="yoga-stage-title">Soft start</h2>
+          <p class="muted" id="yoga-stage-label">Stage 1 · ~10–12 min</p>
+          <p class="muted small yoga-safety">Gentle mobility &amp; breath — not advanced yoga. Pain = ease off. Complements handstand days; does not replace them.</p>
+          <p class="yoga-done-banner" id="yoga-done-banner" hidden>Done today · +12 XP already logged</p>
+          <ol class="drill-list" id="yoga-drills"></ol>
+          <div class="action-row">
+            <button class="btn primary block" id="btn-log-yoga">Log Yoga flow (+12 XP)</button>
+          </div>
+          <p class="muted small" id="yoga-footnote">Yoga has its own streak (consecutive calendar days). Handstand streak stays separate. Shared XP / level bar.</p>
+        </div>
+
+        <div class="card" id="yoga-unlock-card">
+          <h2>Unlock next yoga stage?</h2>
+          <p id="yoga-unlock-criteria" class="muted"></p>
+          <button class="btn accent" id="btn-yoga-unlock">I hit the goal — unlock next (+20 XP)</button>
+        </div>
+
+        <div class="card">
+          <h2>Yoga path</h2>
+          <ul class="stage-map" id="yoga-stage-map"></ul>
         </div>
       </section>
 
