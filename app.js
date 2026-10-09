@@ -15,11 +15,76 @@
       unlockGoal: "Solid plank 30s without wrist pain",
       tips: "Warm wrists before every session. Pain = stop and rest.",
       drills: [
-        { id: "wrist-circles", label: "Wrist circles & rocks", meta: "2 min · gentle" },
-        { id: "shoulder-opener", label: "Shoulder openers (puppy / thread-the-needle)", meta: "2 min" },
-        { id: "plank-holds", label: "Plank holds (knees OK)", meta: "3 × 20–30s" },
-        { id: "scap-pushups", label: "Scapular push-ups", meta: "2 × 8–10" },
-        { id: "hollow-hold", label: "Hollow body hold", meta: "3 × 15–20s" },
+        {
+          id: "wrist-circles",
+          label: "Wrist circles & rocks",
+          meta: "2 min · gentle",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Kneel or sit and place palms flat on the floor, fingers forward.",
+            "Gently rock weight forward and back so wrists flex and extend.",
+            "Flip hands to the backs of the hands for a few soft rocks.",
+            "Make slow wrist circles both ways with fists open and closed.",
+            "Keep pressure light — stop if you feel sharp pain.",
+          ],
+          cue: "Warm, never force — pain means back off.",
+        },
+        {
+          id: "shoulder-opener",
+          label: "Shoulder openers (puppy / thread-the-needle)",
+          meta: "2 min",
+          image: "exercises/shoulder-opener.png",
+          steps: [
+            "From all fours, walk hands forward and drop chest toward the floor (puppy pose).",
+            "Keep hips stacked over knees; breathe into the armpits.",
+            "Return to all fours; slide one arm under the other for thread-the-needle.",
+            "Hold each side 20–30s, then switch.",
+            "Move slowly — no bouncing into the stretch.",
+          ],
+          cue: "Soft ribs, long spine — open the shoulders without pinching.",
+        },
+        {
+          id: "plank-holds",
+          label: "Plank holds (knees OK)",
+          meta: "3 × 20–30s",
+          image: "exercises/plank.png",
+          steps: [
+            "Hands under shoulders, fingers spread, middle finger forward.",
+            "Push the floor away and round the upper back slightly (active shoulders).",
+            "Squeeze glutes and keep a straight line from head to heels (or knees).",
+            "Hold 20–30s; rest; repeat for 3 sets.",
+            "If wrists complain, use fists or a slight incline.",
+          ],
+          cue: "Push the floor away — don't dump into the wrists.",
+        },
+        {
+          id: "scap-pushups",
+          label: "Scapular push-ups",
+          meta: "2 × 8–10",
+          image: "exercises/scap-pushup.png",
+          steps: [
+            "Set up in a strong plank (knees OK).",
+            "Keep elbows locked soft-straight — arms stay long.",
+            "Let the chest sink as shoulder blades pinch together.",
+            "Push the floor away to spread the shoulder blades wide.",
+            "Move slowly for 8–10 reps; that is one set.",
+          ],
+          cue: "Arms stay straight — only the shoulder blades move.",
+        },
+        {
+          id: "hollow-hold",
+          label: "Hollow body hold",
+          meta: "3 × 15–20s",
+          image: "exercises/hollow.png",
+          steps: [
+            "Lie on your back; press the lower back into the floor.",
+            "Lift shoulders and legs into a gentle banana curve.",
+            "Arms reach overhead or by your sides for an easier version.",
+            "Hold 15–20s while breathing calmly; rest; repeat.",
+            "If the low back peels up, bend the knees or lower the legs.",
+          ],
+          cue: "Low back glued down — hollow is a shape, not a crunch.",
+        },
       ],
     },
     {
@@ -28,11 +93,74 @@
       unlockGoal: "Lean ~10s with most weight on hands",
       tips: "Stack shoulders over wrists. Look at the floor between hands.",
       drills: [
-        { id: "wrist-warm", label: "Wrist warm-up", meta: "90 sec" },
-        { id: "pike-hold", label: "Pike hold (hips high)", meta: "3 × 20–30s" },
-        { id: "elevated-pike", label: "Elevated pike lean (feet on box/couch)", meta: "4 × 8–12s" },
-        { id: "shoulder-taps", label: "Pike shoulder taps", meta: "2 × 6/side" },
-        { id: "wall-facing-lean", label: "Wall-facing lean (hands far from wall)", meta: "3 × 10s" },
+        {
+          id: "wrist-warm",
+          label: "Wrist warm-up",
+          meta: "90 sec",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Palms on floor; rock gently forward, back, and side to side.",
+            "Add light wrist circles both directions.",
+            "Finish with a few fist rocks if palms feel ready.",
+          ],
+          cue: "90 seconds of gentle heat before you load the wrists.",
+        },
+        {
+          id: "pike-hold",
+          label: "Pike hold (hips high)",
+          meta: "3 × 20–30s",
+          image: "exercises/pike-hold.png",
+          steps: [
+            "Hands and feet on the floor; lift hips into an inverted V.",
+            "Press shoulders toward the floor over your wrists.",
+            "Look at the floor between your hands; keep elbows soft-locked.",
+            "Hold 20–30s; walk feet in closer only if shoulders stay stacked.",
+            "Repeat for 3 sets with easy rest between.",
+          ],
+          cue: "Hips high, shoulders over wrists — think stacked, not slumped.",
+        },
+        {
+          id: "elevated-pike",
+          label: "Elevated pike lean (feet on box/couch)",
+          meta: "4 × 8–12s",
+          image: "exercises/elevated-pike.png",
+          steps: [
+            "Place feet on a stable box, couch, or chair; hands on the floor.",
+            "Walk hands back until shoulders are roughly over wrists.",
+            "Lean a little more weight into the hands for 8–12s.",
+            "Keep ribs tucked; don't sag the lower back.",
+            "Step down to rest; repeat 4 quality leans.",
+          ],
+          cue: "Most of your weight should feel like it's in your hands.",
+        },
+        {
+          id: "shoulder-taps",
+          label: "Pike shoulder taps",
+          meta: "2 × 6/side",
+          image: "exercises/pike-hold.png",
+          steps: [
+            "Set a solid pike with hips high and shoulders loaded.",
+            "Shift slightly onto one hand and tap the opposite shoulder.",
+            "Replace the hand, then tap the other side.",
+            "Keep hips quiet — minimize twist and sway.",
+            "Do 6 taps per side for 2 rounds.",
+          ],
+          cue: "Quiet hips — taps teach balance without losing the pike.",
+        },
+        {
+          id: "wall-facing-lean",
+          label: "Wall-facing lean (hands far from wall)",
+          meta: "3 × 10s",
+          image: "exercises/elevated-pike.png",
+          steps: [
+            "Face a wall; place hands on the floor a comfortable distance away.",
+            "Walk feet in so hips rise and shoulders load over the wrists.",
+            "Lean gently toward the wall feeling weight shift into the hands.",
+            "Hold ~10s with calm breathing; walk out to rest.",
+            "Keep the wall as a visual guide — you are not kicking up yet.",
+          ],
+          cue: "Load the hands first; the wall is a guide, not a crash pad.",
+        },
       ],
     },
     {
@@ -41,11 +169,72 @@
       unlockGoal: "Stay 10–15s with control",
       tips: "Walk feet up slowly. Keep ribs in; don't dump into the lower back.",
       drills: [
-        { id: "wrist-warm2", label: "Wrist + shoulder warm-up", meta: "2 min" },
-        { id: "elevated-pike2", label: "Elevated pike refresher", meta: "2 × 15s" },
-        { id: "wall-walks", label: "Wall walk-ups", meta: "5–8 reps · stay 5–10s at top" },
-        { id: "chest-partial", label: "Chest toward wall (partial)", meta: "3 × 8–12s" },
-        { id: "scap-holds", label: "Scapular holds upside-down", meta: "3 × 5s at top of walk" },
+        {
+          id: "wrist-warm2",
+          label: "Wrist + shoulder warm-up",
+          meta: "2 min",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Do palm rocks, fist rocks, and wrist circles for about a minute.",
+            "Add puppy pose or thread-the-needle for 30–45s per side.",
+            "Finish with a short plank or pike to wake the shoulders.",
+          ],
+          cue: "Wrists warm, shoulders open — then go to the wall.",
+        },
+        {
+          id: "elevated-pike2",
+          label: "Elevated pike refresher",
+          meta: "2 × 15s",
+          image: "exercises/elevated-pike.png",
+          steps: [
+            "Feet elevated, hands on floor, shoulders over wrists.",
+            "Hold a strong lean for ~15s focusing on stacked shoulders.",
+            "Rest, then repeat once more before wall walks.",
+          ],
+          cue: "Refresh the lean so wall walks feel familiar.",
+        },
+        {
+          id: "wall-walks",
+          label: "Wall walk-ups",
+          meta: "5–8 reps · stay 5–10s at top",
+          image: "exercises/wall-walk.png",
+          steps: [
+            "Start in a plank with feet near the wall, hands farther out.",
+            "Walk feet up the wall as you walk hands closer to the wall.",
+            "Stop when you feel stable — nose can stay a bit away at first.",
+            "Hold 5–10s, then walk back down with control.",
+            "Clear space behind you; never dive off the wall.",
+          ],
+          cue: "Slow feet, quiet core — walk down as carefully as you walk up.",
+        },
+        {
+          id: "chest-partial",
+          label: "Chest toward wall (partial)",
+          meta: "3 × 8–12s",
+          image: "exercises/chest-to-wall.png",
+          steps: [
+            "From a wall walk, bring the chest a little closer to the wall.",
+            "Keep arms straight and ribs pulled in.",
+            "Hold the partial position 8–12s without collapsing the shoulders.",
+            "Walk down; rest; repeat for 3 sets.",
+            "Leave a gap if full chest-to-wall still feels too intense.",
+          ],
+          cue: "Closer chest, same stack — progress gap by gap.",
+        },
+        {
+          id: "scap-holds",
+          label: "Scapular holds upside-down",
+          meta: "3 × 5s at top of walk",
+          image: "exercises/scap-pushup.png",
+          steps: [
+            "Walk up to a comfortable chest-near-wall position.",
+            "With elbows soft-locked, shrug shoulders toward ears, then push tall.",
+            "Find the \"pushed away\" position and hold ~5s.",
+            "Keep breathing; don't banana the lower back.",
+            "Walk down and repeat for 3 short holds.",
+          ],
+          cue: "Push the floor away upside-down — active shoulders protect you.",
+        },
       ],
     },
     {
@@ -54,11 +243,72 @@
       unlockGoal: "Clean 20s hold",
       tips: "Nose close to wall, hips stacked. Breathe calmly.",
       drills: [
-        { id: "warm3", label: "Full warm-up circuit", meta: "3 min" },
-        { id: "wall-walk-entry", label: "Wall walk into chest-to-wall", meta: "warm-up set" },
-        { id: "ctw-holds", label: "Chest-to-wall holds", meta: "5 × 10–20s" },
-        { id: "heel-pulls", label: "Heel pulls off wall (tiny)", meta: "4 × 3–5s" },
-        { id: "shoulder-endurance", label: "Shoulder endurance set", meta: "1 × max comfortable" },
+        {
+          id: "warm3",
+          label: "Full warm-up circuit",
+          meta: "3 min",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Wrist rocks and circles (~60s).",
+            "Shoulder opener: puppy or thread-the-needle (~60s).",
+            "Pike or elevated pike lean (~60s) to load the shoulders.",
+          ],
+          cue: "Three minutes now saves sore wrists later.",
+        },
+        {
+          id: "wall-walk-entry",
+          label: "Wall walk into chest-to-wall",
+          meta: "warm-up set",
+          image: "exercises/wall-walk.png",
+          steps: [
+            "Walk feet up the wall with controlled hand steps.",
+            "Bring chest close so the body is nearly vertical.",
+            "Pause briefly to check stack: wrists → shoulders → hips.",
+            "Walk down smoothly; treat this as a warm-up entry, not a max hold.",
+          ],
+          cue: "Enter tall and quiet — save the long holds for the next drill.",
+        },
+        {
+          id: "ctw-holds",
+          label: "Chest-to-wall holds",
+          meta: "5 × 10–20s",
+          image: "exercises/chest-to-wall.png",
+          steps: [
+            "Chest and nose close to the wall; arms straight.",
+            "Stack hips over shoulders; point toes; squeeze legs together.",
+            "Push the floor away and keep ribs from flaring.",
+            "Hold 10–20s with calm breaths; walk down to rest.",
+            "Build toward a clean 20s across your sets.",
+          ],
+          cue: "Nose to wall, ribs in, push the floor — breathe.",
+        },
+        {
+          id: "heel-pulls",
+          label: "Heel pulls off wall (tiny)",
+          meta: "4 × 3–5s",
+          image: "exercises/heel-pull.png",
+          steps: [
+            "Set a solid chest-to-wall handstand.",
+            "Lightly peel both heels an inch off the wall.",
+            "Balance for 3–5s using fingertips and shoulders, then return heels.",
+            "Keep the pull tiny — this is not a big freestanding attempt.",
+            "Repeat for 4 quality pulls with full rest as needed.",
+          ],
+          cue: "Tiny peel, tall shape — feel the balance without forcing it.",
+        },
+        {
+          id: "shoulder-endurance",
+          label: "Shoulder endurance set",
+          meta: "1 × max comfortable",
+          image: "exercises/chest-to-wall.png",
+          steps: [
+            "Enter chest-to-wall with your best stack.",
+            "Hold as long as form stays clean and breathing stays easy.",
+            "Stop before shoulders shake out of position or wrists complain.",
+            "Walk down with control; note the time for your log.",
+          ],
+          cue: "Quality max — end the hold while form is still proud.",
+        },
       ],
     },
     {
@@ -67,11 +317,73 @@
       unlockGoal: "Kick into wall hold 5 times with control",
       tips: "Soft kick, not a flop. Spot the landing. Use wall as a safety net.",
       drills: [
-        { id: "warm4", label: "Warm-up + 1 chest-to-wall", meta: "3–4 min" },
-        { id: "lunge-entries", label: "Lunge entries to wall", meta: "8–12 attempts" },
-        { id: "controlled-kicks", label: "Controlled kick-ups (catch & hold)", meta: "goal: 5 clean" },
-        { id: "bail-practice", label: "Safe bail / cartwheel out practice", meta: "3–5 reps" },
-        { id: "hold-after", label: "Hold after successful kick", meta: "as long as comfortable" },
+        {
+          id: "warm4",
+          label: "Warm-up + 1 chest-to-wall",
+          meta: "3–4 min",
+          image: "exercises/chest-to-wall.png",
+          steps: [
+            "Wrist and shoulder warm-up for 2 minutes.",
+            "One easy wall walk into a short chest-to-wall hold.",
+            "Shake out the wrists; then set up for kick-ups.",
+          ],
+          cue: "Prime the shape once before you start kicking.",
+        },
+        {
+          id: "lunge-entries",
+          label: "Lunge entries to wall",
+          meta: "8–12 attempts",
+          image: "exercises/kick-up.png",
+          steps: [
+            "Hands on floor, lead leg in a short lunge, wall behind you.",
+            "Shift weight onto hands, then float the back leg up.",
+            "Aim to arrive lightly on the wall — not a slam.",
+            "Step down to your feet; reset the lunge each rep.",
+            "Film a few attempts if you can to check the kick size.",
+          ],
+          cue: "Soft kick into the wall — arrive, don't crash.",
+        },
+        {
+          id: "controlled-kicks",
+          label: "Controlled kick-ups (catch & hold)",
+          meta: "goal: 5 clean",
+          image: "exercises/kick-up.png",
+          steps: [
+            "Same lunge entry, but catch the handstand against the wall.",
+            "Join the legs and hold briefly with active shoulders.",
+            "Count a kick \"clean\" only if you control the arrival and exit.",
+            "Work toward 5 clean catches; quality beats volume.",
+            "Rest whenever the kick gets wild or wrists feel tired.",
+          ],
+          cue: "Catch, stack, breathe — five controlled arrivals is the win.",
+        },
+        {
+          id: "bail-practice",
+          label: "Safe bail / cartwheel out practice",
+          meta: "3–5 reps",
+          image: "exercises/bail.png",
+          steps: [
+            "From a mild kick or wall hold, practice rotating sideways to your feet.",
+            "Turn the hips and step out like a gentle cartwheel — no diving on the head.",
+            "Keep eyes on the landing zone; bend the knees on arrival.",
+            "Clear the space of furniture and hard edges first.",
+            "Repeat 3–5 calm bails so the pattern feels automatic.",
+          ],
+          cue: "Bail sideways to your feet — never fold over your neck.",
+        },
+        {
+          id: "hold-after",
+          label: "Hold after successful kick",
+          meta: "as long as comfortable",
+          image: "exercises/chest-to-wall.png",
+          steps: [
+            "After a clean kick-up, settle into a tall wall handstand.",
+            "Push the floor, squeeze legs, and breathe.",
+            "Hold only while form stays solid; then bail or walk down safely.",
+            "Treat extra hold time as a bonus, not a must.",
+          ],
+          cue: "Enjoy the hold you earned — leave while it still looks clean.",
+        },
       ],
     },
     {
@@ -80,11 +392,74 @@
       unlockGoal: "Short holds away from wall — keep exploring!",
       tips: "Short attempts beat long fails. Film yourself. Celebrate 1–2 second balances.",
       drills: [
-        { id: "warm5", label: "Full prep + chest-to-wall", meta: "4 min" },
-        { id: "kick-away", label: "Kick-ups slightly off wall", meta: "10–15 attempts" },
-        { id: "toe-pull", label: "Toe-pull balances (back to wall)", meta: "6–8" },
-        { id: "free-holds", label: "Freestanding attempts", meta: "quality over quantity" },
-        { id: "cool-down", label: "Wrist cool-down stretches", meta: "2 min" },
+        {
+          id: "warm5",
+          label: "Full prep + chest-to-wall",
+          meta: "4 min",
+          image: "exercises/wrist-rocks.png",
+          steps: [
+            "Wrists, shoulders, and a short pike or elevated lean.",
+            "One solid chest-to-wall hold to groove the stack.",
+            "Shake out; then move slightly away from the wall for attempts.",
+          ],
+          cue: "Prep fully — freestanding needs warm wrists and a clear stack.",
+        },
+        {
+          id: "kick-away",
+          label: "Kick-ups slightly off wall",
+          meta: "10–15 attempts",
+          image: "exercises/kick-up.png",
+          steps: [
+            "Set hands a small step farther from the wall than usual.",
+            "Use a soft controlled kick; try to float before lightly touching the wall.",
+            "If you miss, bail safely to your feet.",
+            "Take many short attempts rather than one exhausted fight.",
+            "Stay within a range where the wall still catches big overkicks.",
+          ],
+          cue: "Small gap from the wall — practice the float, keep the safety net.",
+        },
+        {
+          id: "toe-pull",
+          label: "Toe-pull balances (back to wall)",
+          meta: "6–8",
+          image: "exercises/toe-pull.png",
+          steps: [
+            "Kick or walk into a back-to-wall handstand (belly faces room).",
+            "Lightly touch the wall with toes, then peel toes off to balance.",
+            "Use fingertips and shoulders to stay up for a second or two.",
+            "Return toes to the wall when you tip; reset and try again.",
+            "Aim for 6–8 quality pulls, not marathon holds.",
+          ],
+          cue: "Toes off, find the float — wall is still right there.",
+        },
+        {
+          id: "free-holds",
+          label: "Freestanding attempts",
+          meta: "quality over quantity",
+          image: "exercises/freestanding.png",
+          steps: [
+            "Kick up in open space (or with a spotter / soft clear zone).",
+            "Look for a brief balance: 1–2 seconds counts as a win.",
+            "Exit with a planned bail every time — no stubborn fights.",
+            "Film attempts to check kick size and shoulder stack.",
+            "Stop while you're still fresh enough to land well.",
+          ],
+          cue: "Celebrate seconds — short clean floats beat long messy ones.",
+        },
+        {
+          id: "cool-down",
+          label: "Wrist cool-down stretches",
+          meta: "2 min",
+          image: "exercises/cool-down.png",
+          steps: [
+            "Sit or kneel; place palms down with fingers toward you and lean gently.",
+            "Switch to fingers facing forward for a lighter stretch.",
+            "Stretch the backs of the hands if they feel tight.",
+            "Shake the hands out and do a few easy finger spreads.",
+            "Ice or rest if anything feels irritated after training.",
+          ],
+          cue: "Gentle stretch and shake-out — take care of your wrists.",
+        },
       ],
     },
   ];
@@ -141,6 +516,14 @@
     const m = String(d.getMonth() + 1).padStart(2, "0");
     const day = String(d.getDate()).padStart(2, "0");
     return `${y}-${m}-${day}`;
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   function formatDate(iso) {
@@ -314,10 +697,27 @@
 
     const list = document.getElementById("quest-drills");
     list.innerHTML = stage.drills
-      .map(
-        (d) =>
-          `<li><strong>${d.label}</strong><span class="drill-meta">${d.meta}</span></li>`
-      )
+      .map((d, i) => {
+        const open = i === 0 ? " open" : "";
+        const steps = (d.steps || [])
+          .map((s) => `<li>${escapeHtml(s)}</li>`)
+          .join("");
+        return `<li class="drill-card${open}" data-drill-id="${escapeHtml(d.id)}">
+          <button type="button" class="drill-toggle" aria-expanded="${i === 0 ? "true" : "false"}">
+            <span class="drill-toggle-main">
+              <strong>${escapeHtml(d.label)}</strong>
+              <span class="drill-meta">${escapeHtml(d.meta)}</span>
+            </span>
+            <span class="drill-hint">${i === 0 ? "How-to" : "Tap for how-to"}</span>
+            <span class="drill-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="drill-detail"${i === 0 ? "" : " hidden"}>
+            <img class="drill-image" src="${escapeHtml(d.image)}" alt="${escapeHtml(d.label)} illustration" loading="lazy" width="720" height="480" />
+            <ol class="drill-steps">${steps}</ol>
+            <p class="drill-cue">${escapeHtml(d.cue || "")}</p>
+          </div>
+        </li>`;
+      })
       .join("");
 
     const unlockCard = document.getElementById("unlock-card");
@@ -345,10 +745,31 @@
     const stage = STAGES[currentStageIndex()];
     const box = document.getElementById("drill-checkboxes");
     box.innerHTML = stage.drills
-      .map(
-        (d) =>
-          `<label class="check-item"><input type="checkbox" name="drill" value="${d.id}" /><span>${d.label}</span></label>`
-      )
+      .map((d, i) => {
+        const open = i === 0 ? " open" : "";
+        const steps = (d.steps || [])
+          .map((s) => `<li>${escapeHtml(s)}</li>`)
+          .join("");
+        return `<div class="log-drill-card${open}" data-drill-id="${escapeHtml(d.id)}">
+          <div class="log-drill-top">
+            <label class="check-item">
+              <input type="checkbox" name="drill" value="${escapeHtml(d.id)}" />
+              <span class="check-label-text">
+                <strong>${escapeHtml(d.label)}</strong>
+                <span class="drill-meta">${escapeHtml(d.meta)}</span>
+              </span>
+            </label>
+            <button type="button" class="log-howto-btn" aria-expanded="${i === 0 ? "true" : "false"}">
+              ${i === 0 ? "Hide how-to" : "How-to"}
+            </button>
+          </div>
+          <div class="drill-detail"${i === 0 ? "" : " hidden"}>
+            <img class="drill-image" src="${escapeHtml(d.image)}" alt="${escapeHtml(d.label)} illustration" loading="lazy" width="720" height="480" />
+            <ol class="drill-steps">${steps}</ol>
+            <p class="drill-cue">${escapeHtml(d.cue || "")}</p>
+          </div>
+        </div>`;
+      })
       .join("");
   }
 
@@ -765,6 +1186,41 @@
     } catch { /* ignore */ }
     const card = document.getElementById("install-tip-card");
     if (card) card.hidden = true;
+  });
+
+  // ——— Drill expand (Quest + Log) ———
+  document.getElementById("quest-drills").addEventListener("click", (e) => {
+    const btn = e.target.closest(".drill-toggle");
+    if (!btn) return;
+    const card = btn.closest(".drill-card");
+    if (!card) return;
+    const detail = card.querySelector(".drill-detail");
+    const open = !card.classList.contains("open");
+    card.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    const hint = btn.querySelector(".drill-hint");
+    if (hint) hint.textContent = open ? "How-to" : "Tap for how-to";
+    if (detail) {
+      if (open) detail.removeAttribute("hidden");
+      else detail.setAttribute("hidden", "");
+    }
+  });
+
+  document.getElementById("drill-checkboxes").addEventListener("click", (e) => {
+    const btn = e.target.closest(".log-howto-btn");
+    if (!btn) return;
+    e.preventDefault();
+    const card = btn.closest(".log-drill-card");
+    if (!card) return;
+    const detail = card.querySelector(".drill-detail");
+    const open = !card.classList.contains("open");
+    card.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.textContent = open ? "Hide how-to" : "How-to";
+    if (detail) {
+      if (open) detail.removeAttribute("hidden");
+      else detail.setAttribute("hidden", "");
+    }
   });
 
   // ——— Init ———
