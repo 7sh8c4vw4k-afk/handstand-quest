@@ -820,3 +820,56 @@ input[type="range"] {
 }
 
 .install-tip-card strong { color: var(--accent); font-weight: 700; }
+
+/* Daily Mini status on Home */
+.mini-status-card .mini-status-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mini-status-card h2 {
+  margin-bottom: 4px;
+}
+
+.mini-status-card #mini-status-text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.mini-streak {
+  flex-shrink: 0;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(94, 240, 192, 0.3);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mini-status-card.mini-done {
+  border-color: rgba(94, 240, 192, 0.45);
+  box-shadow: 0 0 0 1px rgba(94, 240, 192, 0.12), var(--shadow);
+}
+
+.mini-done-banner {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(94, 240, 192, 0.28);
+}
+
+#view-mini .small {
+  margin-top: 10px;
+}
+

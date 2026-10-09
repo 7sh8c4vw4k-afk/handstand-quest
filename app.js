@@ -464,6 +464,99 @@
     },
   ];
 
+
+  const DAILY_MINI = {
+    title: "Daily Mini",
+    durationLabel: "~5–8 min",
+    tip: "Soft and steady. Pain = stop. This keeps wrists and shoulders happy between quest days.",
+    drills: [
+      {
+        id: "mini-wrist",
+        label: "Wrist rocks / circles",
+        meta: "60s · gentle",
+        image: "exercises/wrist-rocks.png",
+        steps: [
+          "Kneel or sit; place palms flat, fingers forward.",
+          "Rock weight softly forward and back for ~20s.",
+          "Add slow wrist circles both ways with open hands.",
+          "Optional: light fist rocks if palms feel ready.",
+          "Keep pressure easy — sharp pain means stop.",
+        ],
+        cue: "Warm the wrists, never force them.",
+      },
+      {
+        id: "mini-shoulder",
+        label: "Shoulder / chest opener",
+        meta: "60s/side or ~90s total",
+        image: "exercises/shoulder-opener.png",
+        steps: [
+          "Puppy pose: from all fours, walk hands forward and lower the chest.",
+          "Or stand in a doorway and place forearms on the frame; step through gently.",
+          "Breathe into the chest and armpits for ~60s per side (or ~90s total).",
+          "Keep ribs soft — no aggressive lean.",
+          "Ease out slowly if anything pinches.",
+        ],
+        cue: "Open the front of the shoulders without forcing the stretch.",
+      },
+      {
+        id: "mini-cat-cow",
+        label: "Cat-cow or thread-the-needle",
+        meta: "60–90s",
+        image: "exercises/cat-cow.png",
+        steps: [
+          "On all fours, inhale to drop the belly and lift the gaze (cow).",
+          "Exhale to round the spine and tuck the chin (cat).",
+          "Flow slowly for ~45s, matching breath to movement.",
+          "Optional: slide one arm under for thread-the-needle, 20–30s each side.",
+          "Move like warm oil — no yanking.",
+        ],
+        cue: "Wake the thoracic spine with easy breath-led motion.",
+      },
+      {
+        id: "mini-fold",
+        label: "Standing forward fold / pike stretch",
+        meta: "60s",
+        image: "exercises/forward-fold.png",
+        steps: [
+          "Stand with soft knees; hinge at the hips and fold forward.",
+          "Let the head hang; hold elbows or reach toward the floor.",
+          "Bend the knees as much as you need — hamstrings should feel a stretch, not a strain.",
+          "Stay ~60s with calm breathing; slowly roll up.",
+          "Swap for a seated pike if standing feels wobbly.",
+        ],
+        cue: "Soft knees are fine — length over force.",
+      },
+      {
+        id: "mini-wall-angels",
+        label: "Wall angels or scap squeezes",
+        meta: "8–10 reps",
+        image: "exercises/wall-angels.png",
+        steps: [
+          "Stand with back lightly against a wall, feet a step forward.",
+          "Arms in a cactus/W shape; slide them up toward a Y, then back down.",
+          "Keep ribs down and elbows/wrists as close to the wall as comfortable.",
+          "Or skip the wall: squeeze shoulder blades together for 8–10 slow reps.",
+          "Stop short of pain in the neck or shoulders.",
+        ],
+        cue: "Quiet ribs, smooth scap motion — quality over range.",
+      },
+      {
+        id: "mini-core",
+        label: "Gentle hollow or dead bug",
+        meta: "20–30s × 2",
+        image: "exercises/hollow.png",
+        steps: [
+          "Lie on your back; press the low back into the floor.",
+          "Hollow: lift shoulders and legs slightly into a soft banana, or bend knees to shorten the lever.",
+          "Dead bug option: extend opposite arm and leg while keeping the low back glued down.",
+          "Hold or alternate for 20–30s; rest; repeat once more.",
+          "If the back peels up, make it smaller — bent knees are a win.",
+        ],
+        cue: "Low back stays down — light core, not a crunch contest.",
+      },
+    ],
+  };
+
   const DEFAULT_STATE = {
     name: "Long",
     xp: 0,
@@ -473,6 +566,8 @@
     sessions: [],
     lastSessionDate: null,
     bossLogs: [],
+    miniStreak: 0,
+    lastMiniDate: null,
   };
 
   // ——— State ———
@@ -573,6 +668,29 @@
     return { bonus, messages };
   }
 
+  function applyMiniStreak(miniDate) {
+    let messages = [];
+    if (!state.lastMiniDate) {
+      state.miniStreak = 1;
+    } else {
+      const gap = daysBetween(state.lastMiniDate, miniDate);
+      if (gap === 0) {
+        // same day — streak unchanged (XP gated separately)
+      } else if (gap === 1) {
+        state.miniStreak += 1;
+      } else if (gap > 1) {
+        state.miniStreak = 1;
+        messages.push("Mini streak reset");
+      }
+    }
+    state.lastMiniDate = miniDate;
+    return { messages };
+  }
+
+  function miniDoneToday() {
+    return state.lastMiniDate === todayISO();
+  }
+
   function addXp(amount) {
     const before = levelFromXp(state.xp);
     state.xp += amount;
@@ -646,6 +764,7 @@
   // ——— Render ———
   function renderAll() {
     renderHome();
+    renderMini();
     renderQuest();
     renderLogForm();
     renderMap();
@@ -677,15 +796,87 @@
     } else {
       const last = state.sessions[0];
       summary.classList.remove("muted");
+      let typeBit;
+      if (last.type === "rest") typeBit = "Mobility rest day";
+      else if (last.type === "mini") typeBit = "Daily Mini";
+      else if (last.type === "boss") typeBit = "Boss fight";
+      else if (last.type === "unlock") typeBit = "Unlock attempt";
+      else typeBit = `Stage: ${last.stageName || "—"}`;
       const parts = [
         formatDate(last.date),
-        last.type === "rest" ? "Mobility rest day" : `Stage: ${last.stageName || "—"}`,
+        typeBit,
         `+${last.xpEarned} XP`,
       ];
       if (last.wristFeel) parts.push(`Wrist ${last.wristFeel}/5`);
       if (last.holdTime) parts.push(`Hold ${last.holdTime}s`);
       if (last.kickCount) parts.push(`${last.kickCount} kicks`);
       summary.textContent = parts.join(" · ");
+    }
+
+    const miniStatus = document.getElementById("mini-status-text");
+    const miniBadge = document.getElementById("mini-streak-badge");
+    const miniBtn = document.getElementById("btn-goto-mini");
+    const miniCard = document.getElementById("mini-status-card");
+    if (miniStatus && miniBadge) {
+      const done = miniDoneToday();
+      const streak = state.miniStreak || 0;
+      miniBadge.textContent = `🌱 ${streak}`;
+      if (done) {
+        miniStatus.textContent = `Done today · mini streak ${streak}`;
+        miniStatus.classList.remove("muted");
+        if (miniCard) miniCard.classList.add("mini-done");
+        if (miniBtn) miniBtn.textContent = "View Daily Mini";
+      } else {
+        miniStatus.textContent = streak
+          ? `Not done today · mini streak ${streak} · ~5–8 min`
+          : "Not done today · ~5–8 min stretch";
+        miniStatus.classList.add("muted");
+        if (miniCard) miniCard.classList.remove("mini-done");
+        if (miniBtn) miniBtn.textContent = "Open Daily Mini";
+      }
+    }
+  }
+
+
+  function renderMini() {
+    const list = document.getElementById("mini-drills");
+    if (!list) return;
+    list.innerHTML = DAILY_MINI.drills
+      .map((d, i) => {
+        const open = i === 0 ? " open" : "";
+        const steps = (d.steps || [])
+          .map((s) => `<li>${escapeHtml(s)}</li>`)
+          .join("");
+        return `<li class="drill-card${open}" data-drill-id="${escapeHtml(d.id)}">
+          <button type="button" class="drill-toggle" aria-expanded="${i === 0 ? "true" : "false"}">
+            <span class="drill-toggle-main">
+              <strong>${escapeHtml(d.label)}</strong>
+              <span class="drill-meta">${escapeHtml(d.meta)}</span>
+            </span>
+            <span class="drill-hint">${i === 0 ? "How-to" : "Tap for how-to"}</span>
+            <span class="drill-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="drill-detail"${i === 0 ? "" : " hidden"}>
+            <img class="drill-image" src="${escapeHtml(d.image)}" alt="${escapeHtml(d.label)} illustration" loading="lazy" width="720" height="480" />
+            <ol class="drill-steps">${steps}</ol>
+            <p class="drill-cue">${escapeHtml(d.cue || "")}</p>
+          </div>
+        </li>`;
+      })
+      .join("");
+
+    const done = miniDoneToday();
+    const banner = document.getElementById("mini-done-banner");
+    const btn = document.getElementById("btn-log-mini");
+    if (banner) {
+      banner.hidden = !done;
+      if (done) {
+        banner.textContent = `Done today · +5 XP · mini streak ${state.miniStreak || 0}`;
+      }
+    }
+    if (btn) {
+      btn.disabled = done;
+      btn.textContent = done ? "Already logged today" : "Log Daily Mini (+5 XP)";
     }
   }
 
@@ -824,13 +1015,16 @@
         const typeLabel =
           s.type === "rest"
             ? "Mobility rest"
-            : s.type === "boss"
-              ? "Boss fight"
-              : s.type === "unlock"
-                ? "Unlock attempt"
-                : "Training";
+            : s.type === "mini"
+              ? "Daily Mini"
+              : s.type === "boss"
+                ? "Boss fight"
+                : s.type === "unlock"
+                  ? "Unlock attempt"
+                  : "Training";
         const meta = [];
         if (s.stageName) meta.push(s.stageName);
+        if (s.type === "mini") meta.push(DAILY_MINI.durationLabel + " stretch");
         if (s.drills && s.drills.length) meta.push(`${s.drills.length} drills`);
         if (s.wristFeel) meta.push(`Wrist ${s.wristFeel}/5`);
         if (s.holdTime != null && s.holdTime !== "") meta.push(`${s.holdTime}s hold`);
@@ -922,6 +1116,37 @@
       date,
       stageName: STAGES[currentStageIndex()].name,
       notes: "Mobility / body care",
+      xpEarned: xp,
+    });
+    saveState(state);
+    renderAll();
+    toast(msgs.join(" · "));
+    if (leveled || levelFromXp(state.xp) > prevLevel) celebrateLevelUp();
+    showView("home");
+  }
+
+
+  function logDailyMini() {
+    const date = todayISO();
+    if (state.lastMiniDate === date) {
+      toast("Daily Mini already logged today — come back tomorrow");
+      showView("mini");
+      return;
+    }
+    const prevLevel = levelFromXp(state.xp);
+    const xp = 5;
+    const { messages } = applyMiniStreak(date);
+    const msgs = [`Daily Mini done! +${xp} XP`, `Mini streak ${state.miniStreak}`];
+    if (messages.length) msgs.push(...messages);
+    // Does NOT call applyStreak — main session streak unchanged
+    const leveled = addXp(xp);
+    pushSession({
+      id: Date.now(),
+      type: "mini",
+      date,
+      stageName: DAILY_MINI.title,
+      notes: "Wrist · shoulder · thoracic · fold · scap · light core",
+      drills: DAILY_MINI.drills.map((d) => d.id),
       xpEarned: xp,
     });
     saveState(state);
@@ -1118,6 +1343,16 @@
     }
   });
 
+  document.getElementById("btn-log-mini").addEventListener("click", () => {
+    if (miniDoneToday()) {
+      toast("Daily Mini already logged today");
+      return;
+    }
+    if (window.confirm("Log today's Daily Mini? (+5 XP once per day · does not change main streak)")) {
+      logDailyMini();
+    }
+  });
+
   document.getElementById("btn-unlock-attempt").addEventListener("click", () => {
     attemptUnlockOrComplete();
   });
@@ -1189,22 +1424,28 @@
   });
 
   // ——— Drill expand (Quest + Log) ———
-  document.getElementById("quest-drills").addEventListener("click", (e) => {
-    const btn = e.target.closest(".drill-toggle");
-    if (!btn) return;
-    const card = btn.closest(".drill-card");
-    if (!card) return;
-    const detail = card.querySelector(".drill-detail");
-    const open = !card.classList.contains("open");
-    card.classList.toggle("open", open);
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-    const hint = btn.querySelector(".drill-hint");
-    if (hint) hint.textContent = open ? "How-to" : "Tap for how-to";
-    if (detail) {
-      if (open) detail.removeAttribute("hidden");
-      else detail.setAttribute("hidden", "");
-    }
-  });
+  function bindDrillListToggle(listEl) {
+    if (!listEl) return;
+    listEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".drill-toggle");
+      if (!btn) return;
+      const card = btn.closest(".drill-card");
+      if (!card) return;
+      const detail = card.querySelector(".drill-detail");
+      const open = !card.classList.contains("open");
+      card.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      const hint = btn.querySelector(".drill-hint");
+      if (hint) hint.textContent = open ? "How-to" : "Tap for how-to";
+      if (detail) {
+        if (open) detail.removeAttribute("hidden");
+        else detail.setAttribute("hidden", "");
+      }
+    });
+  }
+
+  bindDrillListToggle(document.getElementById("quest-drills"));
+  bindDrillListToggle(document.getElementById("mini-drills"));
 
   document.getElementById("drill-checkboxes").addEventListener("click", (e) => {
     const btn = e.target.closest(".log-howto-btn");

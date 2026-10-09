@@ -33,6 +33,7 @@
 
     <nav class="tabs" role="tablist" aria-label="Main navigation">
       <button class="tab active" data-view="home" role="tab" aria-selected="true">Home</button>
+      <button class="tab" data-view="mini" role="tab" aria-selected="false">Mini</button>
       <button class="tab" data-view="quest" role="tab" aria-selected="false">Quest</button>
       <button class="tab" data-view="log" role="tab" aria-selected="false">Log</button>
       <button class="tab" data-view="map" role="tab" aria-selected="false">Map</button>
@@ -52,6 +53,17 @@
             <div class="xp-fill" id="xp-fill"></div>
           </div>
           <p class="stage-line">Current stage: <strong id="current-stage-name">Wrist &amp; shoulder prep</strong></p>
+        </div>
+
+        <div class="card mini-status-card" id="mini-status-card">
+          <div class="mini-status-row">
+            <div>
+              <h2>Daily Mini</h2>
+              <p id="mini-status-text" class="muted">Not done today · ~5–8 min stretch</p>
+            </div>
+            <span id="mini-streak-badge" class="mini-streak" title="Mini streak">🌱 0</span>
+          </div>
+          <button class="btn ghost block" data-goto="mini" id="btn-goto-mini">Open Daily Mini</button>
         </div>
 
         <div class="card" id="last-session-card">
@@ -74,7 +86,22 @@
 
         <div class="action-row">
           <button class="btn primary" data-goto="quest">Today's Quest</button>
+          <button class="btn ghost" data-goto="mini">Daily Mini</button>
           <button class="btn ghost" data-goto="log">Log Session</button>
+        </div>
+      </section>
+
+      <!-- MINI -->
+      <section id="view-mini" class="view" role="tabpanel" hidden>
+        <div class="card">
+          <h2>Daily Mini</h2>
+          <p class="muted" id="mini-intro">~5–8 minutes · gentle mobility for off days (or every day). Not a full quest — pain = stop.</p>
+          <p class="mini-done-banner" id="mini-done-banner" hidden>Done today · +5 XP already logged</p>
+          <ol class="drill-list" id="mini-drills"></ol>
+          <div class="action-row">
+            <button class="btn primary block" id="btn-log-mini">Log Daily Mini (+5 XP)</button>
+          </div>
+          <p class="muted small" id="mini-footnote">Main session streak stays separate. Mini has its own streak for consecutive calendar days.</p>
         </div>
       </section>
 

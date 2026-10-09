@@ -1,5 +1,5 @@
 /* Handstand Quest service worker — bump CACHE_NAME when shell assets change */
-const CACHE_NAME = "handstand-quest-v2";
+const CACHE_NAME = "handstand-quest-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -10,7 +10,7 @@ const APP_SHELL = [
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/apple-touch-icon.png",
-    "./exercises/bail.png",
+  "./exercises/bail.png",
   "./exercises/chest-to-wall.png",
   "./exercises/cool-down.png",
   "./exercises/elevated-pike.png",
@@ -25,6 +25,9 @@ const APP_SHELL = [
   "./exercises/toe-pull.png",
   "./exercises/wall-walk.png",
   "./exercises/wrist-rocks.png",
+  "./exercises/cat-cow.png",
+  "./exercises/wall-angels.png",
+  "./exercises/forward-fold.png",
 ];
 
 self.addEventListener("install", (event) => {
